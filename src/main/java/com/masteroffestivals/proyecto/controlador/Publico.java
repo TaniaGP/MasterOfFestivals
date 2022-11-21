@@ -40,6 +40,7 @@ public class Publico {
 	
 	@GetMapping("/index")
 	public String index (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
 		return "index";
 	}
 }

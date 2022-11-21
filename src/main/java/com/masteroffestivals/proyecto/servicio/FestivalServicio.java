@@ -10,6 +10,9 @@ public interface FestivalServicio {
 	//mostrar todos festivales
 	public List<Festival> mostrarFestivales();
 	
+	//obtener festival por id
+	public Festival buscarFestivalId(int id);
+	
 	//guardamos festival
 	public Festival insertar(Festival fest);
 
@@ -36,7 +39,8 @@ public interface FestivalServicio {
 	public List <Festival> buscarFestivalPais (String pais);
 	
 	//borramos festival
-	public void borrar(Festival fest);
+	//public void borrar(Festival fest);
+	public void borrar(int id);
 	
 
 }

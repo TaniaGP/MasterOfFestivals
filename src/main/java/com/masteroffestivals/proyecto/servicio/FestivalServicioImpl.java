@@ -19,6 +19,12 @@ public class FestivalServicioImpl implements FestivalServicio{
 	public List<Festival> mostrarFestivales() {
 		return repositorio.findAll();
 	}
+	
+	@Override
+	public Festival buscarFestivalId(int id) {
+		return repositorio.findById(id).get();
+	}
+
 
 	@Override
 	public Festival insertar(Festival fest) {
@@ -56,9 +62,8 @@ public class FestivalServicioImpl implements FestivalServicio{
 	}
 
 	@Override
-	public void borrar(Festival fest) {
-		repositorio.delete(fest);
-		
+	public void borrar(int id) {
+		repositorio.deleteById(id);
 	}
 	
 }
