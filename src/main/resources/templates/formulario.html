@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario - Master Of Festivals</title>
+    <link rel="icon" href="Logoico.jpg" type="image/x-icon"><!--icono .ico-->
+    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
+	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
+    <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html"><img class="logo" alt="Logo_MasterOfFestivals" src="Logo.jpg" /></a>
+        <a href="index.html">
+            <h1>Master Of Festivals</h1>
+        </a><!--título-->
+        <div id="cabecera"><!--bienvenida-->
+            <p>Bienvenidos a está página donde pretendo englobar todos los festivales del <b>género metal/rock</b> y derivados que existen a nivel europeo,
+                independientemente del tamaño.</p>
+            <p>Como todavía está en construcción, toda ayuda es bienvenida, por lo que si conocéis algún festival que no está incluido, me lo podéis comunicar
+                en el enlace al formulario que encontraréis al final de la página. </p>
+            <p class="importante"><b>¡Importante!</b> Los festivales están organizados por <b>género predominante</b>.</p>
+            <p class="importante"><i>Obtendrás más información del festival clickando en el cartel.</i></p>
+        </div>
+    </header>
+    <aside id="lateral">
+        <p class="listado">Géneros</p>
+        <ul>
+            <li><a href="index.html#metal">Metal</a></li>
+            <li><a href="index.html#hardcore">Hardcore</a></li>
+            <li><a href="index.html#punk">Punk</a></li>
+            <li><a href="index.html#rock">Rock/Heavy Metal</a></li>
+            <li><a href="index.html#death">Death Metal</a></li>
+            <li><a href="index.html#stoner">Stoner</a></li>
+        </ul>
+        <p class="listado">Listado de países</p>
+        <ul>
+            <li><a href="listaalemania.html" target="_blank">Alemania</a></li>
+            <li><a href="listaaustria.html" target="_blank">Austria</a></li>
+            <li><a href="listabelgica.html" target="_blank">Bélgica</a></li>
+            <li><a href="listaeslovenia.html" target="_blank">Eslovenia</a></li>
+            <li><a href="listaespana.html" target="_blank">España</a></li>
+            <li><a href="listafrancia.html" target="_blank">Francia</a></li>
+            <li><a href="listaitalia.html" target="_blank">Italia</a></li>
+            <li><a href="listaportugal.html" target="_blank">Portugal</a></li>
+            <li><a href="listareinounido.html" target="_blank">Reino Unido</a></li>
+            <li><a href="listarepublicacheca.html" target="_blank">República Checa</a></li>
+        </ul>
+    </aside>
+    <article id="contenido">
+        <div id="formulario">
+        	<form th:action="@{/festival-creado}" th:object="${festival}" method="POST"> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
+            <fieldset>
+            <div>
+                <div>
+                    <label for="nombrefestival" class="tagFormulario">Nombre festival: *</label> <!-- el th:field es nombre variable entidad -->
+                    <input placeholder="Introduce nombre del festival" type="text" class="inputFormulario" name="nombrefestival" th:field="*{nombreFestival}" access="false" maxlength="40" id="nombrefestival" required="required">
+                </div>
+                <div>
+                    <label for="localizacion" class="tagFormulario">Localización: *</label>
+                    <input placeholder="Introduce el lugar" type="text" class="inputFormulario" name="localizacion" th:field="*{lugar}" access="false" maxlength="30" id="localizacion" required="required">
+                </div>
+                <div>
+                    <label for="pais" class="tagFormulario">País: *</label>
+                    <input placeholder="Introduce el país de celebración" type="text" class="inputFormulario" name="pais" th:field="*{pais}" access="false" maxlength="40" id="pais" required="required">
+                </div>
+
+ <!-- 
+                <div>
+                    <label for="inicio" class="tagFormulario">Fecha Inicio: *</label>
+                    <input type="date" class="inputFormulario" name="inicio" th:field="*{fechaInicio}" access="false" id="inicio" required="required">
+                </div>
+                <div>
+                    <label for="fin" class="tagFormulario">Fecha Fin: *</label>
+                    <input type="date" class="inputFormulario" name="fin" th:field="*{fechaFin}" access="false" id="fin" required="required">
+                </div>
+               
+  -->               
+                <div>
+                    <label for="web" class="tagFormulario">Página web (o RRSS): *</label>
+                    <input placeholder="Web oficial, Instagram, Facebook..(solo uno)" type="text" class="inputFormulario" name="web" th:field="*{url}" access="false" maxlength="60" id="web">
+                </div>
+ 
+                <div>
+                    <label for="genero" class="tagFormulario">Género: *</label>
+                    <input placeholder="Género principal: Metal, Hardcore, Punk, Rock/Heavy Metal, Death Metal o Stoner" type="text" class="inputFormulario" name="genero" th:field="*{estilo}" access="false" maxlength="40" id="genero" required="required">
+                </div>
+
+
+                <div>
+                    <label for="archivos" class="tagFormulario">Cartel: *</label>
+                    <input type="file" class="inputFormulario" name="archivos[]" th:field="*{cartel}" access="false" multiple="true" id="archivos">
+                </div>
+                <div class="formbuilder-button form-group field-enviar">
+                    <button type="submit" class="btn btn-success" name="enviar" access="false" id="enviar">Enviar</button>
+                </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+    </article>
+    <footer>
+        <!--<p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a href="formulario.html" target="_blank">registrate</a> y añadelo!.</p>-->
+        <div class="iconos">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+@charset "UTF-8";
+@font-face {
+font-family:LithosPro-Bold;
+src: url(fuentes/LithosPro-Bold.otf);
+}
+
+*{ /*afecta a todo el documento*/
+	box-sizing: border-box;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+h1{
+	font-family:LithosPro-Bold;
+	font-size: 70px;
+	color:#bf0000;
+	font-style: italic;
+	text-align: center;
+	position: relative;
+	margin-left: 50px;
+	float: left;
+}
+
+
+a:link, a:visited { /* unvisited link */
+  	color: white;
+}
+
+a:hover, a:active { /* mouse over link */ /* selected link */
+  	color: yellow;
+}
+
+.logo {
+	height: 200px;
+	float: left;
+	margin-left: 60px;
+	margin-bottom: 30px;
+}
+
+
+
+/*-------------------------------------------------INDEX----------------------------------------*/
+/*------------------------BODY--------------------*/
+body {
+	background-color: #FBF9F9;
+}	
+
+
+/*------------------------BOTONES--------------------*/
+
+button {
+	/*display: inline-block;*/
+	/*display: right;*/
+	font-family: 'Muli', sans-serif;
+	border-radius: 4px;
+	background-color: #bf0000;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 17px;
+	padding: 16px;
+	width: 130px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	/*float: right;*/
+}
+
+button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+   
+button span:after {
+	content: '»';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -15px;
+	transition: 0.5s;
+}
+   
+button:hover span {
+	padding-right: 15px;
+}
+   
+button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+/*------------------------BOTON LOGING--------------------*/
+
+#botonlogin button {
+	float:right;
+}
+/* fin boton login*/
+
+/*------------------------BOTÓN CREAR-----------------------*/
+
+#sectorcrear{
+	background-color: #faf771;
+	height: 65px;
+	position: relative;
+}
+
+#botoncrear button {
+	background-color: #00bf19;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	margin: -25px 0 0 -25px;/* aplicar a top y al margen izquierdo un valor 
+	negativo para completar el centrado del elemento hijo */	
+}
+
+/* fin botón crear */
+
+/*------------------------BOTONES GESTION-----------------------*/
+
+#botonesgestion{
+	display:flex;
+    justify-content: space-between;
+}
+
+#botonesgestion button {
+	width: 70px;
+	font-size: 15px;
+	padding: 2px;
+	float: left;
+	margin: 1px;
+}
+
+#botonmod button{
+	background-color: #778deb;
+}
+
+#botonborrar button{
+	background-color: #f35c52;
+}
+
+#botonmostar button{
+	background-color: #62ec80;
+}
+
+
+
+
+
+
+#cabecera {
+	font-family: 'Muli', sans-serif;
+	font-size: 18px;
+	/*background-color: #EBEDEF;*/
+	padding: 10px; 
+	margin: 15px;
+	clear: both; /*limpia floats*/
+}
+
+.importante {
+	text-align: center;
+	/*line-height: 20pt;*/
+}
+
+
+/*------------------------BARRA BÚSQUEDA--------------------*/
+
+.nav_filtro{
+	background-color: #EBEDEF;
+	height: 45px;
+	margin-bottom: 10px;
+}
+
+.group {
+	display: flex;
+	line-height: 28px;
+	align-items: center;
+	position: relative;
+	max-width: 190px;
+	float: right;
+	padding-right: 10px;
+}
+   
+.input {
+	width: 100%;
+	height: 40px;
+	line-height: 28px;
+	/*padding: 0 1rem;*/
+	padding-right: 1rem;
+	padding-bottom: 5px;
+	padding-left: 2.5rem;
+	border: 2px solid transparent;
+	border-radius: 8px;
+	outline: none;
+	background-color:#f3f3f4;
+	border-color: #bf0000;
+	color: #0d0c22;
+	transition: .3s ease;
+}
+   
+.input::placeholder {
+	color: #9e9ea7;
+}
+   
+.input:focus, input:hover {
+	outline: none;
+	border-color: #4bdf26;
+	background-color: #fff;
+	box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+   
+.icon {
+	position: absolute;
+	left: 1rem;
+	fill: #9e9ea7;
+	width: 1rem;
+	height: 1rem;
+}
+/* fin búsqueda*/
+
+.listado {
+	/*font-family: 'Muli', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+	text-transform:uppercase;*/ /*para poner mayúsculas*/
+
+	font-family: 'Muli', sans-serif;
+	font-size: 18px;
+	background-color: #EBEDEF;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px; 
+	margin: 25px;
+
+}
+
+#lateral {
+	float: left;
+	width: 19%;
+	height: auto; /*se adapta si añadimos más países*/
+	position: sticky;
+	top:0;
+	background-color: #bf0000;
+	border-style: ridge;
+	border-radius: 20px;
+}
+
+#contenido {
+	float: right;
+	width: 80%;
+	margin-bottom: 20px;
+}
+
+ul {
+	font-family: 'Muli', sans-serif;
+	list-style-type: none;
+	font-size: 15px;
+	text-align: center;
+	padding: 0px; /*quita margen por defecto de lista*/
+}
+
+
+
+.cabecera {
+	font-family:LithosPro-Bold;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold; 
+	background-color: #bf0000;
+	width: auto;
+	display: block;
+	margin: 0px;
+}
+
+.cartel {
+	/*width: 400px; 
+	height: 628px;*/
+	width: 240px;
+	height: 365px; 
+	display: block; /*se centra imagen en celda*/
+	margin: 0 auto; /*se centra imagen en celda*/
+}
+
+.cartelinfo {
+	/*border:solid 2px;*/
+	background-color: #EBEDEF;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-bottom: 40px;
+}	
+
+.festival {
+	position: relative;
+	top: 20px;
+	bottom: 50px;
+	padding: 20px;
+}
+
+table {
+	border-style: groove;
+	border-radius: 20px;
+	width:100%;
+	padding:10px;
+	font-family: 'Muli', sans-serif;
+	text-align: center;
+	font-size: 18px;
+	background: rgb(0, 0, 0); /*para gradiente: son los dos background*/
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(191,0,0,1) 35%, rgba(255,249,82,1) 100%);
+}
+
+td, tr {
+	background: #fff
+}
+
+.general tr:nth-child(2) {   /*era tr y pegado a los 2puntos!*/
+	font-weight: bold;
+}
+
+
+/*------------------------FOOTER--------------------*/
+footer {
+	clear: both;
+	font-family: 'Muli', sans-serif;
+	width: 100%;
+	color: white;
+	background-color: black;
+	font-size: 12px;
+	height: 50px;
+}
+
+.pie {
+    text-align: center;
+    top: 25px;
+    position: relative;
+	margin: 0 75px 0 75px;
+}
+
+.iconos {
+	top: 25px; 
+    float: right;
+    margin-right: 18px;
+}
+
+.iconos i { /*afecte a los "i" que estén dentro de la clase "iconos". 
+Si tuviese div class="hola" y dentro imágenes...párrafos y un listado, 
+eso afectaría a todo. De esta forma solo es a iconos*/
+   padding-left: 10px; /*espacio entre iconos*/
+}
+/*line-height: 20pt; /* para la separación entre líneas */ 
+
+
+
+/*-------------------------------------------------PÁGINA INFO CARTEL----------------------------------------*/
+
+#contenidoinfo {
+	float: right;
+	width: 80%;
+	margin-bottom: 20px;
+	display: block;
+	justify-content: center;
+	background-color: #EBEDEF;
+	font-family: 'Muli', sans-serif;
+	font-size: 18px;
+}
+
+/*   ----------- ESTO SE VA A ELIMINAR
+caption,.pasados {
+	text-align: center;
+	font-weight: bold;
+	font-family: LithosPro-Bold;
+	font-size: 40px;
+	color:#bf0000;
+}*/
+
+#info {
+	margin: auto;
+	width: 25%;
+	padding: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	border-spacing: 3px; /*espacio entre celdas*/
+	white-space: nowrap; /*para que esté justificado y no baje contenido a 2ªlinea*/
+}
+
+#info td img {
+	display: block;
+}
+
+#info td:nth-child(even) {
+	background-color: #EBEDEF;
+}
+
+#info td:nth-child(odd) {
+	background-color: #bebdc4;
+	font-style: italic;
+}
+
+a.link:link, a.link:visited { /* unvisited link */
+  	color: black;
+}
+
+a.link:hover, a.link:active { /* mouse over link */ /* selected link */
+	color: blue;
+}
+
+/*-------------------------------------------------FORMULARIO----------------------------------------*/
+
+fieldset {
+	background-color: #87c9f0;
+	border-style: ridge;
+	border-radius: 20px;
+}
+
+article fieldset mark {
+	font-weight: bold;
+	background-color: #f1c6a9;
+}
+
+#formulario {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	font-family: 'Muli', sans-serif;
+	font-size: 18px;
+	line-height: 10pt;
+}
+
+fieldset div p {
+	font-size: 15px;
+}
+.tagFormulario {
+	font-size: 18px;
+}
+
+.inputFormulario {
+	font-size: 18px;
+	background-color: white;
+}
+
+.upload-btn-wrapper { /*para el botón formulario*/
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.btn { /*para el botón formulario*/
+	border: 2px solid gray;
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] { /*para el botón formulario*/
+	font-size: 100px;
+  	position: absolute;
+	left: 0;
+	top: 0;
+  	opacity: 0;
+}
+
+/*-------------------------------------------------LOGIN----------------------------------------*/
+
+#cuerpo_login{
+	background-color: #EBEDEF;
+}
+
+#formularioLogin {
+	font-family: 'Muli', sans-serif;
+	height: 520px;
+	width: 400px;
+/*background-color: rgba(83, 21, 228, 0.13);*/
+	background: rgb(0,0,0); /*para gradiente: son los dos background*/
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(191,0,0,1) 35%, rgba(255,249,82,1) 100%);
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255,255,255,0.1);
+	box-shadow: 0 0 40px rgba(8,7,16,0.6);
+	padding: 50px 35px;
+	border: none;
+	outline: none;
+}
+
+
+#formularioLogin h3{
+	font-family: LithosPro-Bold;
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 42px;
+	text-align: center;
+}
+
+label{
+	display: block;
+	margin-top: 30px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+input{
+	display: block;
+	height: 50px;
+	width: 100%;
+	background-color: rgba(255,255,255,0.07);
+	border-radius: 3px;
+	padding: 0 10px;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+::placeholder{
+	color: #e5e5e5;
+}
+
+#boton_login{
+	margin-top: 50px;
+	width: 100%;
+	background-color: #ffffff;
+	color: #080710;
+	padding: 15px 0;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#pie_login {
+	clear: both;
+	font-family: 'Muli', sans-serif;
+	width: 100%;
+	color: white;
+	background-color: black;
+	font-size: 12px;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	left:0;
+}

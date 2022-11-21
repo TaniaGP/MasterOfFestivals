@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Master Of Festivals</title>
+    <link rel="icon" href="Logoico.jpg" type="image/x-icon" /><!--icono .ico-->
+    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
+	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
+    <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img class="logo" alt="Logo_MasterOfFestivals" src="Logo.jpg" /></a>
+        
+        <a href="index.html"><!--título-->
+            <h1>Master Of Festivals</h1>
+        </a>
+        <!--login-->
+        <div id="botonlogin">
+            <button>
+                <span>Login</span>
+            </button>
+        </div>
+
+        <div id="cabecera"><!--bienvenida-->
+            <p>Bienvenidos a está página donde pretendo englobar todos los festivales del <b>género metal/rock</b> y derivados que existen a nivel europeo,
+                independientemente del tamaño.</p>
+            <p>Como todavía está en construcción, toda ayuda es bienvenida, por lo que si conocéis algún festival que no está incluido, me lo podéis comunicar
+                en el enlace al formulario que encontraréis al final de la página. </p>
+            <p class="importante"><b>¡Importante!</b> Los festivales están organizados por <b>género predominante</b>.</p>
+            <p class="importante"><i>Obtendrás más información del festival clickando en el cartel.</i></p>
+        </div>
+    </header>
+ 
+    <nav class="nav_filtro"> <!--buscador y filtro fechas-->
+        <div class="group">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g>
+                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804
+                 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 
+                 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+            </g></svg>
+            <input placeholder="Búsqueda" type="search" class="input">
+        </div>
+    </nav>
+
+    <aside id="lateral">
+        <p class="listado">Géneros</p>
+        <ul> <!--MODIFICAR PARA QUE HAGA BUCLE?????-->
+            <li><a href="#metal">Metal</a></li>
+            <li><a href="#hardcore">Hardcore</a></li>
+            <!--<li><a href="#punk">Punk</a></li>-->
+            <li><a href="#rock">Rock/Heavy Metal</a></li>
+            <li><a href="#death">Death Metal</a></li>
+            <li><a href="#stoner">Stoner</a></li>
+        </ul>
+        <p class="listado">Listado de países</p>
+        <ul>
+            <li><a href="listaalemania.html" target="_blank">Alemania</a></li>
+            <li><a href="listaaustria.html" target="_blank">Austria</a></li>
+            <li><a href="listabelgica.html" target="_blank">Bélgica</a></li>
+            <li><a href="listaeslovenia.html" target="_blank">Eslovenia</a></li>
+            <li><a href="listaespana.html" target="_blank">España</a></li>
+            <li><a href="listafrancia.html" target="_blank">Francia</a></li>
+            <li><a href="listaitalia.html" target="_blank">Italia</a></li>
+            <li><a href="listaportugal.html" target="_blank">Portugal</a></li>
+            <li><a href="listareinounido.html" target="_blank">Reino Unido</a></li>
+            <li><a href="listarepublicacheca.html" target="_blank">República Checa</a></li>
+        </ul>
+    </aside>
+    <article id="contenido"><!--géneros-->
+        <section class="cabecera">
+            <a name="metal">METAL</a>
+        </section>
+        <section class="cartelinfo">
+            <article class="festival">
+                <table class="general">
+                    <tr>
+                        <td> <!--mirar como modificar alt a través de BBDD-->
+                            <a href="resurrectionfest.html"><img class="cartel" alt="cartel_resurrectionfest" src="Festivales/España/resurrectionfest2020.jpg" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Resurrection Fest</td>
+                    </tr>
+                    <tr>
+                        <td>01-04/07/19</td>
+                    </tr>
+                    <tr>
+                        <td>Viveiro (España)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section class="cabecera">
+            <a name="hardcore">HARDCORE</a>
+        </section>
+        <section class="cartelinfo">
+            <article class="festival">
+                <table class="general">
+                    <tr>
+                        <td>
+                            <a href="981united.html"><img class="cartel" alt="cartel_981united" src="Festivales/España/981united2019.jpg" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>981 United</td>
+                    </tr>
+                    <tr>
+                        <td>06-07/04/2019</td>
+                    </tr>
+                    <tr>
+                        <td>A Coruña (España)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section class="cabecera">
+            <a name="rock">ROCK/HEAVY METAL</a>
+        </section>
+        <section class="cartelinfo">
+            <article class="festival">
+                <table class="general">
+                    <tr>
+                        <td>
+                            <a href="rockfest.html"><img class="cartel" alt="cartel_rockfest" src="Festivales/España/rockfest2020.jpg" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rock Fest</td>
+                    </tr>
+                    <tr>
+                        <td>02-04/07/2020</td>
+                    </tr>
+                    <tr>
+                        <td>Gramenet (España)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section class="cabecera">
+            <a name="death">DEATH METAL</a>
+        </section>
+        <section class="cartelinfo">
+            <article class="festival">
+                <table class="general">
+                    <tr>
+                        <td>
+                            <a href="darktroll.html"><img class="cartel" alt="cartel_darktroll" src="Festivales/Alemania/darktroll2020.jpg" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DarkTroll</td>
+                    </tr>
+                    <tr>
+                        <td>21-23/05/2020</td>
+                    </tr>
+                    <tr>
+                        <td>Bornstedt (Alemania)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section class="cabecera">
+            <a name="stoner">STONER</a>
+        </section>
+        <section class="cartelinfo">
+            <article class="festival">
+                <table class="general">
+                    <tr>
+                        <td>
+                            <a href="garagesound.html"><img class="cartel" alt="cartel_garagesound" src="Festivales/España/garagesound2019.jpg" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Garage Sound</td>
+                    </tr>
+                    <tr>
+                        <td>26-28/04/2019</td>
+                    </tr>
+                    <tr>
+                        <td>Madrid (España)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+    </article>
+
+
+    <footer>
+        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a href="formulario.html" target="_blank">registrate</a> y añadelo!.</p>
+        <div class="iconos">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+        </div>
+    </footer>
+</body>
+
+</html>

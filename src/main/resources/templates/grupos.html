@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:href="@{/grupos}">prueba</p> <!-- supuestamente es enlace -->
+	
+	<table>
+		<thead>
+		 <tr>
+			<th>id grupo</th>
+			<th>nombre</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="pr : ${prueba}"> <!-- la palabra prueba viene del controlador -->
+			<td th:text="${pr.idGrupo}"/> <!-- nombre de las variables entidad -->
+			<td th:text="${pr.nombreGrupo}"/>
+		</tr>
+		</tbody>
+		
+	</table>
+	
+	
+	<table>
+		<thead>
+		 <tr>
+			<th>nombre</th>
+			<th>pais</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="f : ${festivales}"> <!-- la palabra prueba viene del controlador -->
+			<td th:text="${f.nombreFestival}"/> <!-- nombre de las variables entidad -->
+			<td th:text="${f.pais}"/>
+		</tr>
+		</tbody>
+		
+	</table>
+	
+	
+	<div> <p th:text= "'hola ' + ${mensaje}" /></div>
+
+	
+</body>
+</html>
