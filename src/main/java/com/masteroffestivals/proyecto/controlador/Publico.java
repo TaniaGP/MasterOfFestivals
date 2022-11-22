@@ -43,4 +43,19 @@ public class Publico {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
 		return "index";
 	}
+	
+	
+	@GetMapping("/login")
+	public String login (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "login";
+	}
+	
+	//ficha detalle festival
+	@GetMapping("/ficha-detalle")
+	public String fichaFestival (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "fichaDetalle";
+	}
+	
 }

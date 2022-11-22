@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Master Of Festivals</title>
+    <title>Index Usuario - Master Of Festivals</title>
     <link rel="icon" th:href="@{/logos/Logoico.jpg}" type="image/x-icon" /><!--icono .ico-->
     <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
-    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -36,7 +36,16 @@
             <p class="importante"><i>Obtendrás más información del festival clickando en el cartel.</i></p>
         </div>
     </header>
- 
+    <div id="sectorcrear">
+        <div id="botoncrear">
+            <a th:href="@{/formulario}">
+	            <button>
+	                <span>Añade!</span>
+	            </button>
+	        </a>
+        </div>
+    </div>
+
     <nav class="nav_filtro"> <!--buscador y filtro fechas-->
         <div class="group">
             <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g>
@@ -50,7 +59,7 @@
 
     <aside id="lateral">
         <p class="listado">Géneros</p>
-        <ul>
+        <ul> 
             <li><a href="#metal">Metal</a></li>
             <li><a href="#hardcore">Hardcore</a></li>
             <li><a href="#punk">Punk</a></li>
@@ -197,7 +206,7 @@
 
 
     <footer>
-        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/login}" target="_blank">registrate</a> y añadelo!.</p>
+        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/formulario}" target="_blank"> añadelo!</a>.</p>
         <div class="iconos">
             <i class="fab fa-facebook-square fa-2x"></i>
             <i class="fab fa-twitter-square fa-2x"></i>

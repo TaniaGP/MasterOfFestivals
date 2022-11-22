@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Formulario - Master Of Festivals</title>
-    <link rel="icon" th:href="@{/logos/Logoico.jpg}" type="image/x-icon"><!--icono .ico-->
+    <title>Formulario Edición Festivales- Master Of Festivals</title>
+    <link rel="icon" th:href="@{/logos/Logoico.jpg}" type="image/x-icon"><!--icono .ico  -->
     <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
@@ -53,9 +53,13 @@
     </aside>
     <article id="contenido">
         <div id="formulario">
-        	<form th:action="@{/festival-creado}" th:object="${festival}" method="POST"> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
+        	<!--  <form th:action="@{/festival-creado}" th:object="${festival}" method="POST">--> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
+            <form th:action="@{/festival/{id}(id=${festival.idfestival})}" th:object="${festival}" method="POST">
             <fieldset>
             <div>
+            	<div>
+            		<p>EDICIÓN FESTIVAL</p>
+            	</div>
                 <div>
                     <label for="nombrefestival" class="tagFormulario">Nombre festival: *</label> <!-- el th:field es nombre variable entidad -->
                     <input placeholder="Introduce nombre del festival" type="text" class="inputFormulario" name="nombrefestival" th:field="*{nombreFestival}" access="false" maxlength="40" id="nombrefestival" required="required">

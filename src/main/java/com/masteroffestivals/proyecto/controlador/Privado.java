@@ -38,6 +38,27 @@ public class Privado {
 		return "redirect:/index"; //modificar (redirecciona al index)
 	}
 	
+	
+	//INDEX PARA USUARIO BÁSICO
+	
+	@GetMapping("/index-usuario")
+	public String indexUsuario (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "indexusuariobasico";
+	}
+		
+	
+	//INDEX PARA ADMIN
+	
+	@GetMapping("/index-admin")
+	public String indexAdmin (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "indexadmin";
+	}
+	
+	
+	//MODIFICAR (ADMIN) get
+	
 	@GetMapping("/formulario/editar/{id}")
 	public String editarFestival(@PathVariable int id, Model modelo) { //recibimos id
 		modelo.addAttribute("festival", festivalServicio.buscarFestivalId(id));
@@ -45,6 +66,7 @@ public class Privado {
 		return "editar_festival";
 	}
 	
+	//MODIFICAR (ADMIN) post
 	@PostMapping("/festival/{id}")
 	public String actualizarFestival(@PathVariable int id, @ModelAttribute("festival") Festival fest, Model modelo) {
 		Festival festivalEdicion = festivalServicio.buscarFestivalId(id);
@@ -60,14 +82,16 @@ public class Privado {
 		
 		festivalServicio.modificar(festivalEdicion); //guardamos cambios
 		
-		return "redirect:/index";
+		//return "redirect:/index";
+		return "redirect:/indexadmin";
 	}
 	
-	
+	//ELIMINAR (ADMIN)
 	@GetMapping("/festival/{id}")
 	public String eliminarFestival(@PathVariable int id) {
 		festivalServicio.borrar(id);
-		return "redirect:/index";
+		//return "redirect:/index";
+		return "redirect:/indexadmin";
 	}
 	
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Login - Master Of Festivals</title>
+    <link rel="icon" th:href="@{/logos/Logoico.jpg}" type="image/x-icon" /><!--icono .ico-->
+    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
+	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
+    <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+</head>
+
+<body id="cuerpo_login">
+    <!--
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>-->
+    <form id="formularioLogin">
+        <h3>Inicia sesión</h3>
+
+        <label for="username">Usuario</label>
+        <input type="text" placeholder="Usuario" id="username">
+
+        <label for="password">Contraseña</label>
+        <input type="password" placeholder="Contraseña" id="password">
+
+        <button id="boton_login">Log In</button>
+    
+    </form>
+
+    <!--<footer id="pie_login">
+        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a href="formulario.html" target="_blank">registrate</a> y añadelo!.</p>
+        <div class="iconos">
+            <i class="fab fa-facebook-square fa-2x"></i>
+            <i class="fab fa-twitter-square fa-2x"></i>
+        </div>
+    </footer>-->
+</body>
+
+</html>
