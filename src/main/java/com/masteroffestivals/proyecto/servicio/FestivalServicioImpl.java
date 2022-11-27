@@ -21,8 +21,9 @@ public class FestivalServicioImpl implements FestivalServicio{
 	}
 	
 	@Override
-	public Festival buscarFestivalId(int id) {
-		return repositorio.findById(id).get();
+	public Festival buscarFestivalId(int idfestival) {
+		//return repositorio.findById(idfestival).get();
+		return repositorio.findById(idfestival).orElse(null);
 	}
 
 

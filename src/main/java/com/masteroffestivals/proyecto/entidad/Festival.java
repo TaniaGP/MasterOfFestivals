@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table (name="festival")
@@ -28,9 +32,11 @@ public class Festival {
 	private String pais;
 	
 	@Column (name="fechainicio")
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date fechaInicio;
 	
 	@Column (name="fechafin")
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date fechaFin;
 	
 	@Column (name="acampada")
@@ -68,8 +74,8 @@ public class Festival {
 	}
 */
 	//constructor sin acampada
-/*	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin,
-			String url, String estilo, String cartel  *//*, Usuario usuario*/  /*) {
+	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin,
+			String url, String estilo, String cartel  /*, Usuario usuario*/  ) {
 		this.nombreFestival = nombreFestival;
 		this.lugar = lugar;
 		this.pais = pais;
@@ -80,10 +86,10 @@ public class Festival {
 		this.cartel = cartel;
 		//this.usuario = usuario;
 	}
-*/	
+	
 	//constructor sin fechas
-		public Festival(String nombreFestival, String lugar, String pais,
-				String url, String estilo, String cartel/*, Usuario usuario*/) {
+	/*		public Festival(String nombreFestival, String lugar, String pais,
+				String url, String estilo, String cartel *//*, Usuario usuario*/  /*) {
 			this.nombreFestival = nombreFestival;
 			this.lugar = lugar;
 			this.pais = pais;
@@ -92,7 +98,7 @@ public class Festival {
 			this.cartel = cartel;
 			//this.usuario = usuario;
 		}
-
+*/
 
 	public int getIdfestival() {
 		return idfestival;

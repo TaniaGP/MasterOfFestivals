@@ -9,6 +9,7 @@
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b0b13d6a16.js" crossorigin="anonymous"></script> <!-- iconos fb y twitter -->
 </head>
 
 <body>
@@ -58,45 +59,45 @@
             <div>
                 <div>
                     <label for="nombrefestival" class="tagFormulario">Nombre festival: *</label> <!-- el th:field es nombre variable entidad -->
-                    <input placeholder="Introduce nombre del festival" type="text" class="inputFormulario" name="nombrefestival" th:field="*{nombreFestival}" access="false" maxlength="40" id="nombrefestival" required="required">
+                    <input placeholder="Introduce nombre del festival" type="text" class="inputFormulario" name="nombrefestival" th:field="${festival.nombreFestival}" maxlength="40" id="nombrefestival" required="required">
                 </div>
                 <div>
                     <label for="localizacion" class="tagFormulario">Localización: *</label>
-                    <input placeholder="Introduce el lugar" type="text" class="inputFormulario" name="localizacion" th:field="*{lugar}" access="false" maxlength="30" id="localizacion" required="required">
+                    <input placeholder="Introduce el lugar" type="text" class="inputFormulario" name="localizacion" th:field="${festival.lugar}" maxlength="30" id="localizacion" required="required">
                 </div>
                 <div>
                     <label for="pais" class="tagFormulario">País: *</label>
-                    <input placeholder="Introduce el país de celebración" type="text" class="inputFormulario" name="pais" th:field="*{pais}" access="false" maxlength="40" id="pais" required="required">
+                    <input placeholder="Introduce el país de celebración" type="text" class="inputFormulario" name="pais" th:field="${festival.pais}" maxlength="40" id="pais" required="required">
                 </div>
 
- <!-- 
+
                 <div>
                     <label for="inicio" class="tagFormulario">Fecha Inicio: *</label>
-                    <input type="date" class="inputFormulario" name="inicio" th:field="*{fechaInicio}" access="false" id="inicio" required="required">
+                    <input type="date" class="inputFormulario" name="inicio" th:field="${festival.fechaInicio}" id="inicio" required="required">
                 </div>
                 <div>
                     <label for="fin" class="tagFormulario">Fecha Fin: *</label>
-                    <input type="date" class="inputFormulario" name="fin" th:field="*{fechaFin}" access="false" id="fin" required="required">
+                    <input type="date" class="inputFormulario" name="fin" th:field="${festival.fechaFin}" id="fin" required="required">
                 </div>
                
-  -->               
+             
                 <div>
                     <label for="web" class="tagFormulario">Página web (o RRSS): *</label>
-                    <input placeholder="Web oficial, Instagram, Facebook..(solo uno)" type="text" class="inputFormulario" name="web" th:field="*{url}" access="false" maxlength="60" id="web">
+                    <input placeholder="Web oficial, Instagram, Facebook..(solo uno)" type="text" class="inputFormulario" name="web" th:field="${festival.url}"  maxlength="60" id="web">
                 </div>
  
                 <div>
                     <label for="genero" class="tagFormulario">Género: *</label>
-                    <input placeholder="Género principal: Metal, Hardcore, Punk, Rock/Heavy Metal, Death Metal o Stoner" type="text" class="inputFormulario" name="genero" th:field="*{estilo}" access="false" maxlength="40" id="genero" required="required">
+                    <input placeholder="Género principal: Metal, Hardcore, Punk, Rock/Heavy Metal, Death Metal o Stoner" type="text" class="inputFormulario" name="genero" th:field="${festival.estilo}"  maxlength="40" id="genero" required="required">
                 </div>
 
 
                 <div>
                     <label for="archivos" class="tagFormulario">Cartel: *</label>
-                    <input type="file" class="inputFormulario" name="archivos[]" th:field="*{cartel}" access="false" multiple="true" id="archivos">
+                    <input type="file" class="inputFormulario" name="archivos[]" th:field="${festival.cartel}" multiple="true" id="archivos">
                 </div>
                 <div class="formbuilder-button form-group field-enviar">
-                    <button type="submit" class="btn btn-success" name="enviar" access="false" id="enviar">Enviar</button>
+                    <button type="submit" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
                 </div>
             </div>
             </fieldset>

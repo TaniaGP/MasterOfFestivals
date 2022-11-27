@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 import com.masteroffestivals.proyecto.servicio.GrupoServicio;
 
@@ -17,7 +20,7 @@ public class Publico {
 	@Autowired
 	private FestivalServicio festivalServicio;
 	
-	// para ruta inicial  http://localhost:3306/grupos
+	// para ruta inicial  http://localhost:8090/grupos
 	@GetMapping({"/grupos", "/"}) 
 	public String mostrarGrupos(Model modelo) {
 		modelo.addAttribute("prueba", grupoServicio.mostrarGrupos()); //la palabra grupos es lo que se pone en el html
@@ -37,13 +40,27 @@ public class Publico {
 		
 		return "hola";
 	}
+	/*
+	@GetMapping("/index")
+	public String index (Model modelo) {
+		modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "index";
+	}*/
+	
 	
 	@GetMapping("/index")
-	public String index (/*Model modelo*/) {
+	public String index (Model modelo) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
+		
 		return "index";
 	}
-	
 	
 	@GetMapping("/login")
 	public String login (/*Model modelo*/) {
@@ -52,10 +69,16 @@ public class Publico {
 	}
 	
 	//ficha detalle festival
-	@GetMapping("/ficha-detalle")
-	public String fichaFestival (/*Model modelo*/) {
-		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		return "fichaDetalle";
+	@GetMapping("/ficha-detalle/{idfestival}") 
+	public String fichaFestival (Model modelo, @PathVariable int idfestival) {
+		Festival resultado = festivalServicio.buscarFestivalId(idfestival);
+		
+		if(resultado !=null) {
+		
+			modelo.addAttribute("festivales", resultado);
+			return "fichaDetalle";
+		}
+		return "redirect:/index";
 	}
 	
 }

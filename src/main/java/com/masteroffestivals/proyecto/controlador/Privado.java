@@ -31,9 +31,11 @@ public class Privado {
 	//controlador festival creado
 	@PostMapping({"/festival-creado"})  //lo que se pone en el modelattribute es lo que tiene que ir en el th:object del form
 	public String guardarFestival(@ModelAttribute("festival") Festival fest) {
-		festivalServicio.insertar(fest);
+		Festival resultado = festivalServicio.insertar(fest);
 		
-		//return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
+		if(resultado !=null) {
+			return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
+		}
 	
 		return "redirect:/index"; //modificar (redirecciona al index)
 	}
@@ -42,8 +44,15 @@ public class Privado {
 	//INDEX PARA USUARIO BÁSICO
 	
 	@GetMapping("/index-usuario")
-	public String indexUsuario (/*Model modelo*/) {
+	public String indexUsuario (Model modelo) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
+		
 		return "indexusuariobasico";
 	}
 		
@@ -51,8 +60,16 @@ public class Privado {
 	//INDEX PARA ADMIN
 	
 	@GetMapping("/index-admin")
-	public String indexAdmin (/*Model modelo*/) {
+	public String indexAdmin (Model modelo) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
+		
 		return "indexadmin";
 	}
 	
@@ -74,8 +91,8 @@ public class Privado {
 		festivalEdicion.setNombreFestival(fest.getNombreFestival());  //obtenemos nombre y lo seteamos
 		festivalEdicion.setLugar(fest.getLugar());
 		festivalEdicion.setPais(fest.getPais());
-		//festivalEdicion.setFechaInicio(fest.getFechaInicio());
-		//festivalEdicion.setFechaFin(fest.getFechaFin());
+		festivalEdicion.setFechaInicio(fest.getFechaInicio());
+		festivalEdicion.setFechaFin(fest.getFechaFin());
 		festivalEdicion.setUrl(fest.getUrl());
 		festivalEdicion.setEstilo(fest.getEstilo());
 		//festivalEdicion.setCartel(fest.getCartel());
@@ -83,15 +100,15 @@ public class Privado {
 		festivalServicio.modificar(festivalEdicion); //guardamos cambios
 		
 		//return "redirect:/index";
-		return "redirect:/indexadmin";
+		return "redirect:/index-admin";
 	}
 	
 	//ELIMINAR (ADMIN)
-	@GetMapping("/festival/{id}")
+	@GetMapping("/festival/borrar/{id}")
 	public String eliminarFestival(@PathVariable int id) {
 		festivalServicio.borrar(id);
 		//return "redirect:/index";
-		return "redirect:/indexadmin";
+		return "redirect:/index-admin";
 	}
 	
 }

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @font-face {
 font-family:LithosPro-Bold;
-src: url(fuentes/LithosPro-Bold.otf);
+src: url(../fuentes/LithosPro-Bold.otf);
 }
 
 *{ /*afecta a todo el documento*/
@@ -145,10 +145,6 @@ button:hover span:after {
 }
 
 
-
-
-
-
 #cabecera {
 	font-family: 'Muli', sans-serif;
 	font-size: 18px;
@@ -256,7 +252,7 @@ button:hover span:after {
 ul {
 	font-family: 'Muli', sans-serif;
 	list-style-type: none;
-	font-size: 15px;
+	font-size: 18px; /*15*/
 	text-align: center;
 	padding: 0px; /*quita margen por defecto de lista*/
 }

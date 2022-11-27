@@ -9,13 +9,14 @@
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b0b13d6a16.js" crossorigin="anonymous"></script> <!-- iconos fb y twitter -->
 </head>
 
 <body>
     <header>
         <a th:href="@{/index}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
         
-        <<a th:href="@{/index}"><!--título-->
+        <a th:href="@{/index}"><!--título-->
             <h1>Master Of Festivals</h1>
         </a>
         <!--login-->
@@ -81,23 +82,33 @@
                 </tr>
                 <tr>
                     <td>Nombre:</td>
-                    <td>981 United</td>
+                    <!--  <td>981 United</td>-->
+                    <td th:text="${festivales.nombreFestival}"></td>
+                    
                 </tr>
                 <tr>
-                    <td>Fecha:</td>
-                    <td>06-07/04/2019 (pendiente de anuncio fechas 2020)</td>
+                    <td>Fecha inicio:</td>
+                    <td th:text="${#dates.format(festivales.fechaInicio, 'dd-MM-yyyy')}"></td>
+                </tr>
+                 <tr>
+                    <td>Fecha fin:</td>
+                    <td th:text="${#dates.format(festivales.fechaFin, 'dd-MM-yyyy')}"></td>
                 </tr>
                 <tr>
                     <td>Localización:</td>
-                    <td>A Coruña</td>
+                    <td th:text="${festivales.lugar}"></td>
+                    
                 </tr>
                 <tr>
                     <td>País</td>
-                    <td>España</td>
+                    <!--  <td>España</td>-->
+                    <td th:text="${festivales.pais}"></td>
                 </tr>
                 <tr>
                     <td>Página web:</td>
-                    <td><a href="https://981united.com/" class="link">https://981united.com/ </a></td>
+                    <!--  <td><a href="https://981united.com/" class="link">https://981united.com/ </a></td>-->
+                    <td> <a th:href="${festivales.url}" class="link" th:text="${festivales.url}"/></td> 
+                    <!-- es necesario que tengan el http puesto , si no es necesario ponerlo a mano en la bbdd-->
                 </tr>
             </table>
         </section>

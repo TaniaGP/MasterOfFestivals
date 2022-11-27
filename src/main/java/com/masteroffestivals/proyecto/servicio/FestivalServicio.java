@@ -11,7 +11,7 @@ public interface FestivalServicio {
 	public List<Festival> mostrarFestivales();
 	
 	//obtener festival por id
-	public Festival buscarFestivalId(int id);
+	public Festival buscarFestivalId(int idfestival);
 	
 	//guardamos festival
 	public Festival insertar(Festival fest);

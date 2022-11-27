@@ -9,6 +9,7 @@
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b0b13d6a16.js" crossorigin="anonymous"></script> <!-- iconos fb y twitter -->
 </head>
 
 <body>
@@ -86,137 +87,258 @@
             <a name="metal">METAL</a>
         </section>
         <section class="cartelinfo">
-            <article class="festival">
-                <table class="general">
-                    <tr>
-                        <td> <!--mirar como modificar alt a través de BBDD-->
-                            <a href="resurrectionfest.html"><img class="cartel" alt="cartel_resurrectionfest" src="Festivales/España/resurrectionfest2020.jpg" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Resurrection Fest</td>
-                    </tr>
-                    <tr>
-                        <td>01-04/07/19</td>
-                    </tr>
-                    <tr>
-                        <td>Viveiro (España)</td>
-                    </tr>
-                </table>
-                <div id="botonesgestion">
-                    <div id="botonmod">
-                        <button>
-                            <!--  <a th:href="@{/formulario/editar{id}(id=${festival.idfestival})}"><span>Modificar</span></a>-->
-                        </button>
-                    </div>
-                    <div id="botonborrar">
-                        <button>
-                           <!--  <a th:href="@{/festival/{id}(id=${festival.idfestival})"><span>Borrar</span></a> -->
-                        </button>
-                    </div>
-                    <div id="botonmostar">
-                        <button>
-                            <span>Muestra</span>
-                        </button>
-                    </div>
-                </div>
-            </article>
+        	<th:block th:each="festmetal : ${festmetal}" >
+	            <article class="festival">
+	                <table class="general">
+	                    <tr>
+	                        <td> <!--mirar como modificar alt a través de BBDD-->                                                                         <!-- modificar src imagen -->
+	                            <a th:href="@{/ficha-detalle/{id}(id=${festmetal.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${festmetal.nombreFestival}" src="Festivales/España/resurrectionfest2020.jpg" /></a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${festmetal.nombreFestival}"></td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${#dates.format(festmetal.fechaInicio, 'dd-MM') + '/' + #dates.format(festmetal.fechaFin, 'dd-MM-yyyy')}"></td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${festmetal.lugar} + ' - (' + ${festmetal.pais} + ')'"></td> 
+	                   	</tr>
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${festmetal.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${festmetal.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+			</th:block>
         </section>
 
         <section class="cabecera">
             <a name="hardcore">HARDCORE</a>
         </section>
         <section class="cartelinfo">
-            <article class="festival">
-                <table class="general">
-                    <tr>
-                        <td>
-                            <a href="981united.html"><img class="cartel" alt="cartel_981united" src="Festivales/España/981united2019.jpg" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>981 United</td>
-                    </tr>
-                    <tr>
-                        <td>06-07/04/2019</td>
-                    </tr>
-                    <tr>
-                        <td>A Coruña (España)</td>
-                    </tr>
-                </table>
-            </article>
+            <th:block th:each="festhardcore : ${festhardcore}" >
+	           	<article class="festival">
+	               <table class="general">
+	                   <tr>
+	                   		<td>
+	                           <a th:href="@{/ficha-detalle/{id}(id=${festhardcore.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${festhardcore.nombreFestival}" src="Festivales/España/981united2019.jpg" /></a>
+	                        </td>
+	                   </tr>
+	                   <tr>
+	                        <td th:text="${festhardcore.nombreFestival}"></td>
+	                   </tr>
+	                   <tr>
+	                        <td th:text="${#dates.format(festhardcore.fechaInicio, 'dd-MM') + '/' + #dates.format(festhardcore.fechaFin, 'dd-MM-yyyy')}"></td>
+	                   </tr>
+	                   <tr>
+	                        <td th:text="${festhardcore.lugar} + ' - (' + ${festhardcore.pais} + ')'"></td> 
+	                   </tr>   
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${festhardcore.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${festhardcore.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+			</th:block>
+        </section>
+        
+        <section class="cabecera">
+            <a name="punk">PUNK</a>
+        </section>
+        <section class="cartelinfo">
+        	<th:block th:each="festpunk : ${festpunk}" >
+	            <article class="festival">
+	                <table class="general">
+	                    <tr>
+	                        <td>
+	                            <a th:href="@{/ficha-detalle/{id}(id=${festpunk.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${festpunk.nombreFestival}" src="Festivales/España/garagesound2019.jpg" /></a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${festpunk.nombreFestival}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${#dates.format(festpunk.fechaInicio, 'dd-MM') + '/' + #dates.format(festpunk.fechaFin, 'dd-MM-yyyy')}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${festpunk.lugar} + ' - (' + ${festpunk.pais} + ')'"></td> 
+	                   	</tr> 
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${festpunk.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${festpunk.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+            </th:block>
         </section>
 
         <section class="cabecera">
             <a name="rock">ROCK/HEAVY METAL</a>
         </section>
         <section class="cartelinfo">
-            <article class="festival">
-                <table class="general">
-                    <tr>
-                        <td>
-                            <a href="rockfest.html"><img class="cartel" alt="cartel_rockfest" src="Festivales/España/rockfest2020.jpg" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rock Fest</td>
-                    </tr>
-                    <tr>
-                        <td>02-04/07/2020</td>
-                    </tr>
-                    <tr>
-                        <td>Gramenet (España)</td>
-                    </tr>
-                </table>
-            </article>
+            <th:block th:each="festrock : ${festrock}" >
+	            <article class="festival">
+	                <table class="general">
+	                    <tr>
+	                        <td>
+	                            <a th:href="@{/ficha-detalle/{id}(id=${festrock.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${festrock.nombreFestival}" src="Festivales/España/rockfest2020.jpg" /></a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${festrock.nombreFestival}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${#dates.format(festrock.fechaInicio, 'dd-MM') + '/' + #dates.format(festrock.fechaFin, 'dd-MM-yyyy')}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${festrock.lugar} + ' - (' + ${festrock.pais} + ')'"></td> 
+	                   	</tr>  
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${festrock.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${festrock.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+             </th:block>
         </section>
 
         <section class="cabecera">
             <a name="death">DEATH METAL</a>
         </section>
         <section class="cartelinfo">
-            <article class="festival">
-                <table class="general">
-                    <tr>
-                        <td>
-                            <a href="darktroll.html"><img class="cartel" alt="cartel_darktroll" src="Festivales/Alemania/darktroll2020.jpg" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>DarkTroll</td>
-                    </tr>
-                    <tr>
-                        <td>21-23/05/2020</td>
-                    </tr>
-                    <tr>
-                        <td>Bornstedt (Alemania)</td>
-                    </tr>
-                </table>
-            </article>
+            <th:block th:each="festdeath : ${festdeath}" >
+	            <article class="festival">
+	                <table class="general">
+	                    <tr>
+	                        <td>
+	                            <a th:href="@{/ficha-detalle/{id}(id=${festdeath.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${festdeath.nombreFestival}" src="Festivales/Alemania/darktroll2020.jpg" /></a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${festdeath.nombreFestival}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${#dates.format(festdeath.fechaInicio, 'dd-MM') + '/' + #dates.format(festdeath.fechaFin, 'dd-MM-yyyy')}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${festdeath.lugar} + ' - (' + ${festdeath.pais} + ')'"></td> 
+	                   	</tr> 
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${festdeath.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${festdeath.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+             </th:block>
         </section>
 
         <section class="cabecera">
             <a name="stoner">STONER</a>
         </section>
         <section class="cartelinfo">
-            <article class="festival">
-                <table class="general">
-                    <tr>
-                        <td>
-                            <a href="garagesound.html"><img class="cartel" alt="cartel_garagesound" src="Festivales/España/garagesound2019.jpg" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Garage Sound</td>
-                    </tr>
-                    <tr>
-                        <td>26-28/04/2019</td>
-                    </tr>
-                    <tr>
-                        <td>Madrid (España)</td>
-                    </tr>
-                </table>
-            </article>
+            <th:block th:each="feststoner : ${feststoner}" >
+	            <article class="festival">
+	                <table class="general">
+	                    <tr>
+	                        <td>
+	                            <a th:href="@{/ficha-detalle/{id}(id=${feststoner.idfestival})}"><img class="cartel" th:alt="'cartel_' + ${feststoner.nombreFestival}" src="Festivales/España/garagesound2019.jpg" /></a>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td th:text="${feststoner.nombreFestival}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${#dates.format(feststoner.fechaInicio, 'dd-MM') + '/' + #dates.format(feststoner.fechaFin, 'dd-MM-yyyy')}"></td>
+	                   	</tr>
+	                   	<tr>
+	                        <td th:text="${feststoner.lugar} + ' - (' + ${feststoner.pais} + ')'"></td> 
+	                   	</tr> 
+	                </table>
+	                <div id="botonesgestion">
+	                    <div id="botonmod">
+	                        <button>
+	                            <a th:href="@{/formulario/editar/{id}(id=${feststoner.idfestival})}"><span>Modificar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonborrar">
+	                        <button>
+	                           <a th:href="@{/festival/borrar/{id}(id=${feststoner.idfestival})}"><span>Borrar</span></a>
+	                        </button>
+	                    </div>
+	                    <div id="botonmostar">
+	                        <button>
+	                            <span>Muestra</span>
+	                        </button>
+	                    </div>
+	                </div>
+	            </article>
+             </th:block>
         </section>
 
     </article>
