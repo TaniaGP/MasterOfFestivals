@@ -78,7 +78,9 @@
             <table id="info">
                 <caption>Información</caption>
                 <tr><!--modificar cartel para que tenga JS-->
-                    <td rowspan="7"><img onclick="javascript:this.width=400;this.height=628" ondblclick="javascript:this.width=240;this.height=365" src="Festivales/España/981united2019.jpg" width="240" height="365" alt="cartel" title="Haz click para ampliar imagen" /></td>
+                    <td rowspan="7"><img onclick="javascript:this.width=400;this.height=628" ondblclick="javascript:this.width=240;this.height=365" 
+                    th:src="@{'/carteles/'} + ${festivales.cartel}" width="240" height="365" 
+                    th:alt="'cartel_' + ${festivales.nombreFestival} +'_'+ ${#dates.format(festivales.fechaFin, 'yyyy')}" title="Haz click para ampliar imagen" /></td>
                 </tr>
                 <tr>
                     <td>Nombre:</td>
