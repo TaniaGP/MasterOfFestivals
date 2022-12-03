@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.masteroffestivals.proyecto.entidad.Festival;
+import com.masteroffestivals.proyecto.entidad.Usuario;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 import com.masteroffestivals.proyecto.servicio.GrupoServicio;
 
@@ -67,6 +67,15 @@ public class Publico {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
 		return "login";
 	}
+	
+	
+	@GetMapping("/registro-usuario")
+	public String registroUsuario (Model modelo) {
+		Usuario usuario = new Usuario();
+		modelo.addAttribute("usuario", usuario);
+		return "registroUsu";
+	}
+	
 	
 	//ficha detalle festival
 	@GetMapping("/ficha-detalle/{idfestival}") 

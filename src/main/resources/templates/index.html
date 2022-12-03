@@ -83,7 +83,7 @@
 	            	<table class="general">
 	                    <tr>
 	                        <td> 
-	                            <a th:href="@{/ficha-detalle/{id}(id=${festmetal.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/ficha-detalle/{id}(id=${festmetal.idfestival})}"><img class="cartel"
 	                            th:alt="'cartel_' + ${festmetal.nombreFestival} +'_'+ ${#dates.format(festmetal.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festmetal.cartel}" /></a>
 	                        </td>
 	                    </tr>

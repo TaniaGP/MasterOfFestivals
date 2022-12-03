@@ -63,10 +63,8 @@ public class Privado {
 				fest.setCartel(imagen.getOriginalFilename());
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 		
 		Festival resultado = festivalServicio.insertar(fest);
@@ -123,7 +121,7 @@ public class Privado {
 	
 	//MODIFICAR (ADMIN) post
 	@PostMapping("/festival/{id}")
-	public String actualizarFestival(@PathVariable int id, @ModelAttribute("festival") Festival fest, Model modelo) {
+	public String actualizarFestival(@PathVariable int id, @ModelAttribute("festival") Festival fest, Model modelo, @RequestParam("archivo") MultipartFile imagen) {
 		Festival festivalEdicion = festivalServicio.buscarFestivalId(id);
 		festivalEdicion.setIdfestival(id);
 		festivalEdicion.setNombreFestival(fest.getNombreFestival());  //obtenemos nombre y lo seteamos
@@ -134,6 +132,22 @@ public class Privado {
 		festivalEdicion.setUrl(fest.getUrl());
 		festivalEdicion.setEstilo(fest.getEstilo());
 		//festivalEdicion.setCartel(fest.getCartel());
+		
+		if(!imagen.isEmpty()) {
+			Path directorioCarteles = Paths.get("src//main/resources//static/carteles");
+			String rutaAbsoluta = directorioCarteles.toFile().getAbsolutePath();
+			
+			try {
+				byte[] bytesImg = imagen.getBytes();
+				Path rutaCompleta = Paths.get(rutaAbsoluta+ "//"+ imagen.getOriginalFilename()); //guardamos la imagen en la url completa con el nombre de la imagn
+				Files.write(rutaCompleta, bytesImg); //y lo escribimos
+				
+				festivalEdicion.setCartel(imagen.getOriginalFilename());
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		festivalServicio.modificar(festivalEdicion); //guardamos cambios
 		

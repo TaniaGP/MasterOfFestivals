@@ -49,7 +49,7 @@ public class Festival {
 	private String estilo;
 	
 	@Column (name="cartel")
-	private String cartel;
+	private String cartel = "nocartel.png";  //establecemos cartel predefinido si no se sube ninguno
 	
 	/*
 	@ManyToOne  // un usuario puede tener varios festivales

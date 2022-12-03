@@ -55,7 +55,7 @@
     <article id="contenido">
         <div id="formulario">
         	<!--  <form th:action="@{/festival-creado}" th:object="${festival}" method="POST">--> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
-            <form th:action="@{/festival/{id}(id=${festival.idfestival})}" th:object="${festival}" method="POST">
+            <form th:action="@{/festival/{id}(id=${festival.idfestival})}" th:object="${festival}" method="POST" enctype="multipart/form-data">
             <fieldset>
             <div>
             	<div>
@@ -98,7 +98,8 @@
 
                 <div>
                     <label for="archivos" class="tagFormulario">Cartel: *</label>
-                    <input type="file" class="inputFormulario" name="archivos[]" th:field="${festival.cartel}" multiple="true" id="archivos">
+                    <input type="file" class="inputFormulario" name="archivo" id="archivo">
+                    <!--<input type="file" class="inputFormulario" name="archivos[]" th:field="${festival.cartel}" multiple="true" id="archivos">  -->
                 </div>
                 <div class="formbuilder-button form-group field-enviar">
                     <button type="submit" class="btn btn-success" name="enviar" id="enviar">Enviar</button>
