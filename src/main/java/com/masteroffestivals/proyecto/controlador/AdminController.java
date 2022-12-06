@@ -70,7 +70,7 @@ public class AdminController {
 		Festival fest = new Festival();
 		modelo.addAttribute("festival", fest);
 		
-		return "formulario";
+		return "formularioAdmin";
 	}
 	
 	
@@ -94,12 +94,8 @@ public class AdminController {
 		}
 		
 		Festival resultado = festivalServicio.insertar(fest);
-		
-		if(resultado !=null) {
-			return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
-		}
 	
-		return "redirect:/admin/index-admin"; //modificar (redirecciona al index)
+		return "redirect:/admin/formulario?exito"; //modificar (redirecciona al index)
 	}
 	
 	//MODIFICAR (ADMIN) get

@@ -15,10 +15,22 @@
 <body>
 
     <header>
-        <a th:href="@{/publico/index}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
-        <a th:href="@{/publico/index}">
+        <a th:href="@{/admin/index}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
+        <a th:href="@{/admin/index}">
             <h1>Master Of Festivals</h1>
         </a><!--título-->
+        
+         <div id="botonlogin">
+        	<div id="logout">
+        		<form th:action="@{/admin/logout}" method="POST">
+        			<button id="botonlogout" type="submit" value="Logout"> Logout </button>
+        		</form>
+        	</div>
+        	
+        	<p id="saludo">Hola, <b>[[${#request.userPrincipal.principal.username}]]</b>!</p>
+        	
+        </div>
+        
         <div id="cabecera"><!--bienvenida-->
             <p>Bienvenidos a está página donde pretendo englobar todos los festivales del <b>género metal/rock</b> y derivados que existen a nivel europeo,
                 independientemente del tamaño.</p>

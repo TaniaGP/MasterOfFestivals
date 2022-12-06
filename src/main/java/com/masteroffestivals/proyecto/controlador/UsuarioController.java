@@ -95,10 +95,6 @@ public class UsuarioController {
 		
 		Festival resultado = festivalServicio.insertar(fest);
 		
-		if(resultado !=null) {
-			return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
-		}
-	
-		return "redirect:/usuario/index-usuario"; //modificar (redirecciona al index)
+		return "redirect:/usuario/formulario?exito"; 
 	}
 }

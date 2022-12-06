@@ -23,7 +23,7 @@
 	        <h3>Inicia sesión ADMIN</h3>
 	        
 	        <div th:if="${param.error}">
-	        	<h4 style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
+	        	<h4>[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
 	        </div>
 	
 	        <label for="email">Email</label>

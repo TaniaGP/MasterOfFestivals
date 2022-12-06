@@ -13,11 +13,12 @@
 </head>
 
 <body id="cuerpo_login">
-    <!--
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>-->
+    
+    <div th:if=${param.exito}>
+    	<div class="exito">Usuario registrado correctamente! Haz <a th:href="@{/usuario/login}">log in </a>para acceder</div>
+    </div>
+    
+    
     <div id="formularioLogin">
 	    <form th:action="@{/registro/usuario-creado}" th:object="${usuario}" method="POST"> <!-- cambiar action a usuario creado correctamente -->
 	        <h3>Registro</h3>
@@ -25,10 +26,10 @@
 	        <label for="nombreusuario">Nombre: *</label> <!-- el th:field es nombre variable entidad -->
             <input placeholder="Nombre" type="text" name="nombreusuario" th:field="${usuario.nombreUsuario}" maxlength="40" id="nombreusuario" required="required">
                
-	        <label for="email">Email</label>
+	        <label for="email">Email: *</label>
 	        <input placeholder="Email" type="email" name="email" th:field="${usuario.email}" maxlength="40" id="email" required="required">
 	        
-	        <label for="password">Contraseña</label>
+	        <label for="password">Contraseña: *</label>
 	        <input placeholder="Contraseña" type="password" name="password" th:field="${usuario.password}" maxlength="40" id="password" required="required">
 	
 	        <button type="submit" id="boton_login" name="enviar">Crear usuario</button>

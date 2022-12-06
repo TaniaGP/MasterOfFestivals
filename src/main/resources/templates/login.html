@@ -13,6 +13,8 @@
 </head>
 
 <body id="cuerpo_login">
+
+<p>Login <a th:href="@{/admin/login}">admin </a> </p>
    
     <div id="formularioLogin">
 	    <form th:action="@{/usuario/login}"method="POST">
@@ -21,7 +23,7 @@
 	        <h3>Inicia sesión</h3>
 	        
 	        <div th:if="${param.error}">
-	        	<h4 style="color: white">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
+	        	<h4>[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
 	        </div>
 	
 	        <label for="email">Email</label>
@@ -41,9 +43,5 @@
 	</div>
 
 </body>
-
-<footer>
-	<p>Login <a th:href="@{/admin/login}">admin </a> </p>
-</footer>
 
 </html>

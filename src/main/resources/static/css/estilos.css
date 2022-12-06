@@ -38,6 +38,24 @@ a:hover, a:active { /* mouse over link */ /* selected link */
 }
 
 
+/*AVISO USUARIO O CARTEL CREADO CORRECTAMENTE*/
+.exito{
+	font-family: 'Muli', sans-serif;
+	height: 80px;
+	width: 400px;
+	background-color: rgb(50,89, 216);
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(255,255,255,0.1);
+	box-shadow: 0 0 40px rgba(8,7,16,0.6);
+	padding: 10px;
+	border: none;
+	margin: 50px auto;
+	
+}
 
 /*-------------------------------------------------INDEX----------------------------------------*/
 /*------------------------BODY--------------------*/
@@ -93,9 +111,14 @@ button:hover span:after {
 
 /*------------------------BOTON LOGING--------------------*/
 
-#botonlogin button {
+#botonlogin, #saludo, #logout {
 	float:right;
 }
+
+#botonlogout {
+	background-color: #4b15e2
+}
+
 /* fin boton login*/
 
 /*------------------------BOTÓN CREAR-----------------------*/
@@ -467,6 +490,7 @@ fieldset div p {
 	background-color: #EBEDEF;
 }
 
+
 #formularioLogin {
 	font-family: 'Muli', sans-serif;
 	height: 520px;
@@ -520,6 +544,10 @@ input{
 }
 
 .lineaLogin{
+	color: white;
+}
+
+h4{
 	color: white;
 }
 

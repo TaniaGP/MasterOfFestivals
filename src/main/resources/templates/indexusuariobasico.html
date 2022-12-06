@@ -19,20 +19,15 @@
         <a th:href="@{/usuario/index-usuario}"><!--título-->
             <h1>Master Of Festivals</h1>
         </a>
-        <!--login-->
-<!--         <div id="botonlogin"> -->
-<!--             <a th:href="@{/usuario/login}"> -->
-<!--             	<button> -->
-<!--                 	<span>Login</span> -->
-<!--             	</button> -->
-<!--             </a> -->
-<!--         </div> -->
         
-        <div>
-        	<p>hola <b>[[${#request.userPrincipal.principal.username}]]</b></p>
-        	<form th:action="@{/admin/logout}" method="POST">
-        		<input type="submit" value="Logout" />
-        	</form>
+        <div id="botonlogin">
+        	<div id="logout">
+        		<form th:action="@{/usuario/logout}" method="POST">
+        			<button id="botonlogout" type="submit" value="Logout"> Logout </button>
+        		</form>
+        	</div>
+       		<p id="saludo">Hola, <b>[[${#request.userPrincipal.principal.username}]]</b>!</p>
+        	
         </div>
 
         <div id="cabecera"><!--bienvenida-->

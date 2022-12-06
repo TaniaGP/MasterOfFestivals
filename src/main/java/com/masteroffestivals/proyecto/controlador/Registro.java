@@ -26,24 +26,9 @@ public class Registro {
 	@Autowired
 	private FestivalServicio festivalServicio;
 	
-	/*@Autowired
-	private UsuarioServicio usuarioServicio; */
-	
-	/*@Autowired
-	private UserDetailsServiceImpl userDetails;*/
-	
-	
 	@Autowired
 	private UsuarioRepositorio usuarioRepositorio;
-	
-/*	
-	@GetMapping("/registro/login")
-	public String login (Model modelo) {
-		modelo.addAttribute("usuario", new Usuario());
-		return "login";
-	}*/
-	
-	
+
 	@GetMapping("/registro-usuario")
 	public String registroUsuario (Model modelo) {
 		Usuario usuario = new Usuario();
@@ -65,15 +50,10 @@ public class Registro {
 			usuario.setRol(Rol.USER);
 		}
 			
+		usuarioRepositorio.save(usuario);
 		
+		return "redirect:/registro/registro-usuario?exito";
 		
-		Usuario resultado = usuarioRepositorio.save(usuario);
-		
-		if(resultado !=null) {
-			return "Usuario creado!"; //modificar cuando se tenga página creada
-		}
-		
-		return "redirect:/registro/login";
 	}
 }
 	

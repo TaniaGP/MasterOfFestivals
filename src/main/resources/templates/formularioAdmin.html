@@ -15,21 +15,23 @@
 <body>
 
     <header>
-        <a th:href="@{/usuario/index-usuario}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
-        <a th:href="@{/usuario/index-usuario}">
+        <a th:href="@{/admin/index-admin}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
+        <a th:href="@{/admin/index-admin}">
             <h1>Master Of Festivals</h1>
         </a><!--título-->
         
         <div id="botonlogin">
         	<div id="logout">
-        		<form th:action="@{/usuario/logout}" method="POST">
+        		<form th:action="@{/admin/logout}" method="POST">
         			<button id="botonlogout" type="submit" value="Logout"> Logout </button>
         		</form>
         	</div>
-       		<p id="saludo">Hola, <b>[[${#request.userPrincipal.principal.username}]]</b>!</p>
+        	
+        	<p id="saludo">Hola, <b>[[${#request.userPrincipal.principal.username}]]</b>!</p>
         	
         </div>
-        	
+        
+        
         <div id="cabecera"><!--bienvenida-->
             <p>Bienvenidos a está página donde pretendo englobar todos los festivales del <b>género metal/rock</b> y derivados que existen a nivel europeo,
                 independientemente del tamaño.</p>
@@ -66,11 +68,11 @@
     <article id="contenido">
     
 	    <div th:if=${param.exito}>
-	    	<div class="exito">Festival creado! Espera a que lo revisemos, por favor. Vuelve al <a th:href="@{/usuario/index-usuario}">inicio </a></div>
+	    	<div class="exito">Festival creado!. Vuelve al <a th:href="@{/admin/index-admin}">inicio </a></div>
 	    </div>
 	    
         <div id="formulario">                    									 <!-- enctype es necesario para las imagenes -->
-        	<form th:action="@{/usuario/festival-creado}" th:object="${festival}" method="POST" enctype="multipart/form-data"> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
+        	<form th:action="@{/admin/festival-creado}" th:object="${festival}" method="POST" enctype="multipart/form-data"> <!--action es para donde va a redirigir después de crear, MODIFICAR EN EL CONTROLLER -->
             <fieldset>
             <div>
                 <div>
