@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.entidad.Usuario;
@@ -12,6 +15,7 @@ import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 import com.masteroffestivals.proyecto.servicio.GrupoServicio;
 
 @Controller
+@RequestMapping ("/publico")
 public class Publico {
 
 	@Autowired
@@ -21,7 +25,7 @@ public class Publico {
 	private FestivalServicio festivalServicio;
 	
 	// para ruta inicial  http://localhost:8090/grupos
-	@GetMapping({"/grupos", "/"}) 
+	/*@GetMapping({"/grupos", "/"}) 
 	public String mostrarGrupos(Model modelo) {
 		modelo.addAttribute("prueba", grupoServicio.mostrarGrupos()); //la palabra grupos es lo que se pone en el html
 		modelo.addAttribute("mensaje", "esto es una prueba");
@@ -39,7 +43,7 @@ public class Publico {
 		modelo.addAttribute("prueba2", "esto es una prueba2");
 		
 		return "hola";
-	}
+	}*/
 	/*
 	@GetMapping("/index")
 	public String index (Model modelo) {
@@ -62,19 +66,24 @@ public class Publico {
 		return "index";
 	}
 	
-	@GetMapping("/login")
-	public String login (/*Model modelo*/) {
+	//@GetMapping("/login")
+	//public String login (/*Model modelo*/) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		return "login";
-	}
+	//	return "login";
+	//}
 	
 	
-	@GetMapping("/registro-usuario")
+/*	@GetMapping("/registro-usuario")
 	public String registroUsuario (Model modelo) {
 		Usuario usuario = new Usuario();
 		modelo.addAttribute("usuario", usuario);
 		return "registroUsu";
 	}
+	
+	@PostMapping("/usuario-creado") //lo que se pone en el modelattribute es lo que tiene que ir en el th:object del form
+	public String guardarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+		
+	}*/
 	
 	
 	//ficha detalle festival

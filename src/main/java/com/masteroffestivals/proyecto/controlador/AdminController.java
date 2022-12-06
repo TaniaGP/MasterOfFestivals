@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,13 +20,50 @@ import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 
 @Controller
-public class Privado {
+@RequestMapping("/admin")
+public class AdminController {
 	
-	//zonas solo accesibles para administradores y usuarios
-
 	@Autowired
 	private FestivalServicio festivalServicio;
 	
+	@GetMapping("/login")
+	public String login (/*Model modelo*/) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		return "admin_login";
+	}
+	
+	
+	//INDEX PARA ADMIN
+	
+	@GetMapping("/index-admin")
+	public String indexAdmin (Model modelo) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
+		
+		return "indexadmin";
+	}
+	
+	//ficha detalle festival
+	@GetMapping("/ficha-detalle/{idfestival}") 
+	public String fichaFestival (Model modelo, @PathVariable int idfestival) {
+		Festival resultado = festivalServicio.buscarFestivalId(idfestival);
+		
+		if(resultado !=null) {
+		
+			modelo.addAttribute("festivales", resultado);
+			return "fichaDetalleAdmin";
+		}
+		return "redirect:/admin/index-admin";
+	}
+	
+	
+	//CREAR FESTIVAL
 	//controlador formulario
 	@GetMapping({"/formulario"})
 	public String formularioFestival(Model modelo) {
@@ -34,18 +72,6 @@ public class Privado {
 		
 		return "formulario";
 	}
-	
-	//controlador festival creado
-	/*@PostMapping({"/festival-creado"})  //lo que se pone en el modelattribute es lo que tiene que ir en el th:object del form
-	public String guardarFestival(@ModelAttribute("festival") Festival fest) {
-		Festival resultado = festivalServicio.insertar(fest);
-		
-		if(resultado !=null) {
-			return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
-		}
-	
-		return "redirect:/index"; //modificar (redirecciona al index)
-	}*/
 	
 	
 	@PostMapping({"/festival-creado"})  //lo que se pone en el modelattribute es lo que tiene que ir en el th:object del form
@@ -73,42 +99,8 @@ public class Privado {
 			return "Festival creado! Espera a que lo revisemos, por favor"; //modificar cuando se tenga página creada
 		}
 	
-		return "redirect:/index"; //modificar (redirecciona al index)
+		return "redirect:/admin/index-admin"; //modificar (redirecciona al index)
 	}
-	
-	
-	//INDEX PARA USUARIO BÁSICO
-	
-	@GetMapping("/index-usuario")
-	public String indexUsuario (Model modelo) {
-		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
-		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
-		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
-		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
-		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
-		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
-		
-		return "indexusuariobasico";
-	}
-		
-	
-	//INDEX PARA ADMIN
-	
-	@GetMapping("/index-admin")
-	public String indexAdmin (Model modelo) {
-		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		
-		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
-		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
-		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
-		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
-		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
-		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
-		
-		return "indexadmin";
-	}
-	
 	
 	//MODIFICAR (ADMIN) get
 	
@@ -131,7 +123,6 @@ public class Privado {
 		festivalEdicion.setFechaFin(fest.getFechaFin());
 		festivalEdicion.setUrl(fest.getUrl());
 		festivalEdicion.setEstilo(fest.getEstilo());
-		//festivalEdicion.setCartel(fest.getCartel());
 		
 		if(!imagen.isEmpty()) {
 			Path directorioCarteles = Paths.get("src//main/resources//static/carteles");
@@ -151,16 +142,14 @@ public class Privado {
 		
 		festivalServicio.modificar(festivalEdicion); //guardamos cambios
 		
-		//return "redirect:/index";
-		return "redirect:/index-admin";
+	
+		return "redirect:/admin/index-admin";
 	}
 	
 	//ELIMINAR (ADMIN)
 	@GetMapping("/festival/borrar/{id}")
 	public String eliminarFestival(@PathVariable int id) {
 		festivalServicio.borrar(id);
-		//return "redirect:/index";
-		return "redirect:/index-admin";
+		return "redirect:/admin/index-admin";
 	}
-	
 }

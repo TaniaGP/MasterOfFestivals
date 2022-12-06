@@ -14,18 +14,25 @@
 
 <body>
     <header>
-        <a th:href="@{/index}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
+        <a th:href="@{/usuario/index-usuario}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
         
-        <a th:href="@{/index}"><!--título-->
+        <a th:href="@{/usuario/index-usuario}"><!--título-->
             <h1>Master Of Festivals</h1>
         </a>
         <!--login-->
-        <div id="botonlogin">
-            <a th:href="@{/login}">
-            	<button>
-                	<span>Login</span>
-            	</button>
-            </a>
+<!--         <div id="botonlogin"> -->
+<!--             <a th:href="@{/usuario/login}"> -->
+<!--             	<button> -->
+<!--                 	<span>Login</span> -->
+<!--             	</button> -->
+<!--             </a> -->
+<!--         </div> -->
+        
+        <div>
+        	<p>hola <b>[[${#request.userPrincipal.principal.username}]]</b></p>
+        	<form th:action="@{/admin/logout}" method="POST">
+        		<input type="submit" value="Logout" />
+        	</form>
         </div>
 
         <div id="cabecera"><!--bienvenida-->
@@ -39,7 +46,7 @@
     </header>
     <div id="sectorcrear">
         <div id="botoncrear">
-            <a th:href="@{/formulario}">
+            <a th:href="@{/usuario/formulario}">
 	            <button>
 	                <span>Añade!</span>
 	            </button>
@@ -92,7 +99,7 @@
 	            	<table class="general"> <!-- th:if="${festmetal.estilo} == 'Metal'"  -->
 	                    <tr>
 	                        <td> 
-	                            <a th:href="@{/ficha-detalle/{id}(id=${festmetal.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/usuario/ficha-detalle/{id}(id=${festmetal.idfestival})}"><img class="cartel" 
 	                            th:alt="'cartel_' + ${festmetal.nombreFestival} +'_'+ ${#dates.format(festmetal.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festmetal.cartel}" /></a>
 	                        </td>
 	                    </tr>
@@ -119,7 +126,7 @@
 	               <table class="general">
 	                   <tr>
 	                   		<td>
-	                           <a th:href="@{/ficha-detalle/{id}(id=${festhardcore.idfestival})}"><img class="cartel" 
+	                           <a th:href="@{/usuario/ficha-detalle/{id}(id=${festhardcore.idfestival})}"><img class="cartel" 
 	                           th:alt="'cartel_' + ${festhardcore.nombreFestival} +'_'+ ${#dates.format(festhardcore.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festhardcore.cartel}" /></a>
 	                        </td>
 	                   </tr>
@@ -146,7 +153,7 @@
 	                <table class="general">
 	                    <tr>
 	                        <td>
-	                            <a th:href="@{/ficha-detalle/{id}(id=${festpunk.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/usuario/ficha-detalle/{id}(id=${festpunk.idfestival})}"><img class="cartel" 
 	                            th:alt="'cartel_' + ${festpunk.nombreFestival} +'_'+ ${#dates.format(festpunk.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festpunk.cartel}" /></a>
 	                        </td>
 	                    </tr>
@@ -173,7 +180,7 @@
 	                <table class="general">
 	                    <tr>
 	                        <td>
-	                            <a th:href="@{/ficha-detalle/{id}(id=${festrock.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/usuario/ficha-detalle/{id}(id=${festrock.idfestival})}"><img class="cartel" 
 	                            th:alt="'cartel_' + ${festrock.nombreFestival} +'_'+ ${#dates.format(festrock.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festrock.cartel}" /></a>
 	                        </td>
 	                    </tr>
@@ -200,7 +207,7 @@
 	                <table class="general">
 	                    <tr>
 	                        <td>
-	                            <a th:href="@{/ficha-detalle/{id}(id=${festdeath.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/usuario/ficha-detalle/{id}(id=${festdeath.idfestival})}"><img class="cartel" 
 	                            th:alt="'cartel_' + ${festdeath.nombreFestival} +'_'+ ${#dates.format(festdeath.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${festdeath.cartel}" /></a>
 	                        </td>
 	                    </tr>
@@ -227,7 +234,7 @@
 	                <table class="general">
 	                    <tr>
 	                        <td>
-	                            <a th:href="@{/ficha-detalle/{id}(id=${feststoner.idfestival})}"><img class="cartel" 
+	                            <a th:href="@{/usuario/ficha-detalle/{id}(id=${feststoner.idfestival})}"><img class="cartel" 
 	                            th:alt="'cartel_' + ${feststoner.nombreFestival} +'_'+ ${#dates.format(feststoner.fechaFin, 'yyyy')}" th:src="@{'/carteles/'} + ${feststoner.cartel}" /></a>
 	                        </td>
 	                    </tr>
@@ -249,7 +256,7 @@
 
 
     <footer>
-        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/formulario}" target="_blank"> añadelo!</a>.</p>
+        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/usuario/formulario}" target="_blank"> añadelo!</a>.</p>
         <div class="iconos">
             <i class="fab fa-facebook-square fa-2x"></i>
             <i class="fab fa-twitter-square fa-2x"></i>

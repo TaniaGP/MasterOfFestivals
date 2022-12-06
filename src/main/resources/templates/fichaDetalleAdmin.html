@@ -14,13 +14,13 @@
 
 <body>
     <header>
-        <a th:href="@{/publico/index}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
+        <a th:href="@{/admin/index-admin}"><img class="logo" alt="Logo_MasterOfFestivals" th:src="@{/logos/Logo.jpg}" /></a>
         
-        <a th:href="@{/publico/index}"><!--título-->
+        <a th:href="@{/admin/index-admin}"><!--título-->
             <h1>Master Of Festivals</h1>
         </a>
         <!--login-->
-        <div id="botonlogin">
+        <div id="botonlogin">  <!-- MODIFICAR -->
             <a th:href="@{/usuario/login}">
             	<button>
                 	<span>Login</span>
@@ -133,7 +133,7 @@
 
 
     <footer>
-        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/registro/registro-usuario}" target="_blank">registrate</a> y añadelo!.</p>
+        <p class="pie">Si conoces algún festival o eres organizador de uno que no esté en la página, <a th:href="@{/admin/formulario}" target="_blank">añadelo!</a>.</p>
         <div class="iconos">
             <i class="fab fa-facebook-square fa-2x"></i>
             <i class="fab fa-twitter-square fa-2x"></i>

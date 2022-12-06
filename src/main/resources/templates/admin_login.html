@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login - Master Of Festivals</title>
+    <title>Login Admin- Master Of Festivals</title>
     <link rel="icon" th:href="@{/logos/Logoico.jpg}" type="image/x-icon" /><!--icono .ico-->
     <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" th:href="@{/css/estilos.css}"/><!--como insertamos fuente externa, 
 	ya indicamos estilo en la hoja css, por eso no hace falta indicarlo aquí de nuevo-->
@@ -13,37 +13,33 @@
 </head>
 
 <body id="cuerpo_login">
+
+<p>Este no es tu login? Vuelve al Login <a th:href="@{/usuario/login}">usuario </a> </p>
    
     <div id="formularioLogin">
-	    <form th:action="@{/usuario/login}"method="POST">
-	    <!-- <form th:action="@{/usuario/login}" th:object="${usuario}" method="POST"> -->
+	    <form th:action="@{/admin/login}" method="POST">
+	    <!--<form th:action="@{/admin/login}"   th:object="${usuario}" method="POST"> -->
 	    
-	        <h3>Inicia sesión</h3>
+	        <h3>Inicia sesión ADMIN</h3>
 	        
 	        <div th:if="${param.error}">
-	        	<h4 style="color: white">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
+	        	<h4 style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
 	        </div>
 	
 	        <label for="email">Email</label>
 	        <input placeholder="Email" type="email" name="email" maxlength="40" id="email" required="required">
-			<!--<input placeholder="Email" type="email" name="email" th:field="${usuario.email}" maxlength="40" id="email" required="required"> -->
-	        
+	        <!-- <input placeholder="Email" type="email" name="email" th:field="${usuario.email}" maxlength="40" id="email" required="required"> -->
 	        
 	        <label for="password">Contraseña</label>
 	        <input placeholder="Contraseña" type="password" name="password" maxlength="40" id="password" required="required">
-		<!--<input placeholder="Contraseña" type="password" name="email" th:field="${usuario.password}" maxlength="40" id="password" required="required"> -->
+			<!--  <input placeholder="Contraseña" type="password" name="email" th:field="${usuario.password}" maxlength="40" id="password" required="required"> -->
 			
+	
 	        <button type="submit" id="boton_login" name="enviar">Log In</button>
 	        
-	        <p class="lineaLogin">Si no estás registrado, hazlo <a th:href="@{/registro/registro-usuario}">aquí</a></p>
-	    
 	    </form>
 	</div>
 
 </body>
-
-<footer>
-	<p>Login <a th:href="@{/admin/login}">admin </a> </p>
-</footer>
 
 </html>
