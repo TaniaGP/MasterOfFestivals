@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.masteroffestivals.proyecto.entidad.Estilo;
 import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 
@@ -49,6 +50,20 @@ public class UsuarioController {
 		return "indexusuariobasico";
 	}
 	
+	/*@GetMapping("/index-usuario")
+	public String indexUsuario (Model modelo) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero(Estilo.METAL.getNombre()));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("HARDCORE"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("PUNK"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("ROCK"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("DEATH"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("STONER"));
+		
+		return "indexusuariobasico";
+	}*/
+	
 	//ficha detalle festival
 	@GetMapping("/ficha-detalle/{idfestival}") 
 	public String fichaFestival (Model modelo, @PathVariable int idfestival) {
@@ -69,6 +84,8 @@ public class UsuarioController {
 	public String formularioFestival(Model modelo) {
 		Festival fest = new Festival();
 		modelo.addAttribute("festival", fest);
+		//añado esto
+		modelo.addAttribute("estilos", Estilo.values());
 		
 		return "formulario";
 	}

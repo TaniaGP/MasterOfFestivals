@@ -3,6 +3,7 @@ package com.masteroffestivals.proyecto.servicio;
 import java.util.Date;
 import java.util.List;
 
+import com.masteroffestivals.proyecto.entidad.Estilo;
 import com.masteroffestivals.proyecto.entidad.Festival;
 
 public interface FestivalServicio {
@@ -31,12 +32,16 @@ public interface FestivalServicio {
 	public List <Festival> buscarFestivalFecha (Date fechainicio);
 	
 	
-	//mostramos festival por genero
+	//mostramos festival por genero ACTIVOS
 	public List <Festival> buscarFestivalGenero (String genero);
+	//public List <Festival> buscarFestivalGenero (Estilo genero);
 	
 	
 	//mostramos festival por pais
 	public List <Festival> buscarFestivalPais (String pais);
+	
+	//mostramos todos los festivales 
+	public List<Festival> buscarTodosFestivalGenero(String estilo);
 	
 	//borramos festival
 	//public void borrar(Festival fest);

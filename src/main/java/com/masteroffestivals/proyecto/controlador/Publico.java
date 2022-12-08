@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.masteroffestivals.proyecto.entidad.Estilo;
 import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.entidad.Usuario;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
@@ -65,6 +66,22 @@ public class Publico {
 		
 		return "index";
 	}
+	
+	/*@GetMapping("/index")
+	public String index (Model modelo) {
+		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
+		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("METAL"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("HARDCORE"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("PUNK"));
+		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("ROCK"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("DEATH"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("STONER"));
+		
+		return "index";
+	
+	}	*/
+	
+	
 	
 	//@GetMapping("/login")
 	//public String login (/*Model modelo*/) {

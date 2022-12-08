@@ -102,11 +102,22 @@
                     <input placeholder="Web oficial, Instagram, Facebook..(solo uno)" type="text" class="inputFormulario" name="web" th:field="${festival.url}"  maxlength="60" id="web">
                 </div>
  
-                <div>
-                    <label for="genero" class="tagFormulario">Género: *</label>
-                    <input placeholder="Género principal: Metal, Hardcore, Punk, Rock/Heavy Metal, Death Metal o Stoner" type="text" class="inputFormulario" name="genero" th:field="${festival.estilo}"  maxlength="40" id="genero" required="required">
-                </div>
+<!--                 <div> -->
+<!--                     <label for="genero" class="tagFormulario">Género: *</label> -->
+<!--                     <input placeholder="Género principal: Metal, Hardcore, Punk, Rock/Heavy Metal, Death Metal o Stoner" type="text" class="inputFormulario" name="genero" th:field="${festival.estilo}"  maxlength="40" id="genero" required="required"> -->
+<!--                 </div> -->
 
+				<div>
+                    <label for="genero" class="tagFormulario">Género: *</label>
+                    <select class="inputFormulario" th:field="${festival.estilo}">
+                    	<option th:value="'Metal'" th:text="Metal"></option>
+                    	<option th:value="'Hardcore'" th:text="Hardcore"></option>
+                    	<option th:value="'Punk'" th:text="Punk"></option>
+                    	<option th:value="'Rock/Heavy Metal'" th:text="'Rock/Heavy Metal'"></option>
+                    	<option th:value="'Death Metal'" th:text="'Death Metal'"></option>
+                    	<option th:value="'Stoner'" th:text="Stoner"></option>
+                    </select>
+                </div>
 
                 <div>
                     <label for="archivos" class="tagFormulario">Cartel: *</label>

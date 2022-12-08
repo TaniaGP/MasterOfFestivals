@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/css2/all.css" th:href="@{/css/css2/all.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b0b13d6a16.js" crossorigin="anonymous"></script> <!-- iconos fb y twitter -->
+	<script type="text/javascript" src="master.js"></script>
 </head>
 
 <body>
@@ -45,7 +46,7 @@
                  5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 
                  7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
             </g></svg>
-            <input placeholder="Búsqueda" type="search" class="input">
+            <input placeholder="Búsqueda" type="search" class="input" id="buscador">
         </div>
     </nav>
 
@@ -77,11 +78,12 @@
         <section>
             <table id="info">
                 <caption>Información</caption>
-                <tr><!--modificar cartel para que tenga JS-->
-                    <td rowspan="7"><img onclick="javascript:this.width=400;this.height=628" ondblclick="javascript:this.width=240;this.height=365" 
+                <tr>
+                	<td rowspan="7">
+                	<img onclick="javascript:this.width=400;this.height=628" ondblclick="javascript:this.width=240;this.height=365" 
                     th:src="@{'/carteles/'} + ${festivales.cartel}" width="240" height="365" 
                     th:alt="'cartel_' + ${festivales.nombreFestival} +'_'+ ${#dates.format(festivales.fechaFin, 'yyyy')}" title="Haz click para ampliar imagen" /></td>
-                </tr>
+                 </tr>
                 <tr>
                     <td>Nombre:</td>
                     <!--  <td>981 United</td>-->
@@ -114,21 +116,7 @@
                 </tr>
             </table>
         </section>
-
-        <!--
-        <section id="publicidad">
-            <p>Si quieres tener una pequeña idea de lo que te vas encontrar en el festival, aquí tienes un resumen de la edición anterior:</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/xoSW8L_KEhQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
-        <section>
-            <p class="pasados">Carteles de años pasados</p>
-            <section id="anteriores">--><!--modificar alt para que sea automatico BBDD????-->
-               <!-- <div id="siete"><img src="Festivales/España/981united2017.jpg" alt="cartel2017" width="240px" height="365px" /></div>
-                <div id="ocho"><img src="Festivales/España/981united2018.jpg" alt="cartel2018" width="240px" height="365px" /></div>
-                <div id="nueve"><img src="Festivales/España/981united2019.jpg" alt="cartel2019" width="240px" height="365px" /></div>
-            </section>
-        </section>-->
-    
+   
     </article>
 
 
@@ -139,6 +127,10 @@
             <i class="fab fa-twitter-square fa-2x"></i>
         </div>
     </footer>
+ 
+    <script>
+
+</script>
 </body>
 
 </html>

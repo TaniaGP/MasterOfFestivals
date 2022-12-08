@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -48,8 +48,16 @@ public class Festival {
 	@Column (name="estilo")
 	private String estilo;
 	
+/*	@Column (name="estilo")
+	@Enumerated(EnumType.STRING)
+	private Estilo estilo;
+*/	
+	
 	@Column (name="cartel")
 	private String cartel = "nocartel.png";  //establecemos cartel predefinido si no se sube ninguno
+	
+	@Column (name="mostrar")
+	private boolean mostrar = false;
 	
 	/*
 	@ManyToOne  // un usuario puede tener varios festivales
@@ -73,9 +81,9 @@ public class Festival {
 		//this.usuario = usuario;
 	}
 */
-	//constructor sin acampada
-	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin,
-			String url, String estilo, String cartel  /*, Usuario usuario*/  ) {
+	//constructor sin acampada  ESTOY USANDO ESTE
+/*	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin,
+			String url, String estilo, String cartel */ /*, Usuario usuario*/ /* ) {
 		this.nombreFestival = nombreFestival;
 		this.lugar = lugar;
 		this.pais = pais;
@@ -85,20 +93,52 @@ public class Festival {
 		this.estilo = estilo;
 		this.cartel = cartel;
 		//this.usuario = usuario;
+	}*/
+	
+	//este tambien funciona
+	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin, String url,
+			String estilo, String cartel, boolean mostrar) {
+		this.nombreFestival = nombreFestival;
+		this.lugar = lugar;
+		this.pais = pais;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.url = url;
+		this.estilo = estilo;
+		this.cartel = cartel;
+		this.mostrar = mostrar;
 	}
 	
-	//constructor sin fechas
-	/*		public Festival(String nombreFestival, String lugar, String pais,
-				String url, String estilo, String cartel *//*, Usuario usuario*/  /*) {
-			this.nombreFestival = nombreFestival;
-			this.lugar = lugar;
-			this.pais = pais;
-			this.url = url;
-			this.estilo = estilo;
-			this.cartel = cartel;
-			//this.usuario = usuario;
-		}
-*/
+	
+/*	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin, String url,
+			Estilo estilo, String cartel, boolean mostrar) {
+		
+		this.nombreFestival = nombreFestival;
+		this.lugar = lugar;
+		this.pais = pais;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.url = url;
+		this.estilo = estilo;
+		this.cartel = cartel;
+		this.mostrar = mostrar;
+	}*/
+	
+//	//constructor sin acampada
+//	public Festival(String nombreFestival, String lugar, String pais, Date fechaInicio, Date fechaFin,
+//			String url, Estilo estilo, String cartel  /*, Usuario usuario*/  ) {
+//		this.nombreFestival = nombreFestival;
+//		this.lugar = lugar;
+//		this.pais = pais;
+//		this.fechaInicio = fechaInicio;
+//		this.fechaFin = fechaFin;
+//		this.url = url;
+//		this.estilo = estilo;
+//		this.cartel = cartel;
+//		//this.usuario = usuario;
+//	}
+	
+
 
 	public int getIdfestival() {
 		return idfestival;
@@ -171,6 +211,16 @@ public class Festival {
 	public void setEstilo(String estilo) {
 		this.estilo = estilo;
 	}
+	
+	
+	/*public Estilo getEstilo() {
+		return estilo;
+	}
+
+	public void setEstilo(Estilo estilo) {
+		this.estilo = estilo;
+	}*/
+
 
 	public String getCartel() {
 		return cartel;
@@ -179,6 +229,17 @@ public class Festival {
 	public void setCartel(String cartel) {
 		this.cartel = cartel;
 	}
+	
+	
+	
+	public boolean isMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(boolean mostrar) {
+		this.mostrar = mostrar;
+	}
+	
 
 	/*public Usuario getUsuario() {
 		return usuario;
@@ -187,6 +248,8 @@ public class Festival {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}*/
+
+	
 
 	@Override
 	public int hashCode() {

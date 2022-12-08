@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.masteroffestivals.proyecto.entidad.Estilo;
 import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.servicio.FestivalServicio;
 
@@ -39,12 +40,12 @@ public class AdminController {
 	public String indexAdmin (Model modelo) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
 		
-		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("Metal"));
-		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("Hardcore"));
-		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("Punk"));
-		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("Rock/Heavy Metal"));
-		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("Death Metal"));
-		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("Stoner"));
+		modelo.addAttribute("festmetal", festivalServicio.buscarTodosFestivalGenero("Metal"));
+		modelo.addAttribute("festhardcore", festivalServicio.buscarTodosFestivalGenero("Hardcore"));
+		modelo.addAttribute("festpunk", festivalServicio.buscarTodosFestivalGenero("Punk"));
+		modelo.addAttribute("festrock", festivalServicio.buscarTodosFestivalGenero("Rock/Heavy Metal"));
+		modelo.addAttribute("festdeath", festivalServicio.buscarTodosFestivalGenero("Death Metal"));
+		modelo.addAttribute("feststoner", festivalServicio.buscarTodosFestivalGenero("Stoner"));
 		
 		return "indexadmin";
 	}

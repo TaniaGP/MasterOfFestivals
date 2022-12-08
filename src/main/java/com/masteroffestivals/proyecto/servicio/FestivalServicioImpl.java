@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import com.masteroffestivals.proyecto.entidad.Estilo;
 import com.masteroffestivals.proyecto.entidad.Festival;
 import com.masteroffestivals.proyecto.repositorio.FestivalRepositorio;
 
@@ -56,12 +58,21 @@ public class FestivalServicioImpl implements FestivalServicio{
 	public List<Festival> buscarFestivalGenero(String estilo) {
 		return repositorio.findByEstilo(estilo);
 	}
+	
+	public List<Festival> buscarTodosFestivalGenero(String estilo) {
+		return repositorio.mostrarTodos(estilo);
+	}
 
 	@Override
 	public List<Festival> buscarFestivalPais(String pais) {
 		return repositorio.findByPais(pais);
 	}
 
+	
+	/*public List <Festival> mostrarFestivalesActivos(){
+		return repositorio.mostrarActivos();
+	}*/
+	
 	@Override
 	public void borrar(int id) {
 		repositorio.deleteById(id);
