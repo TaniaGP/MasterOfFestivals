@@ -68,11 +68,7 @@ public class FestivalServicioImpl implements FestivalServicio{
 		return repositorio.findByPais(pais);
 	}
 
-	
-	/*public List <Festival> mostrarFestivalesActivos(){
-		return repositorio.mostrarActivos();
-	}*/
-	
+
 	@Override
 	public void borrar(int id) {
 		repositorio.deleteById(id);

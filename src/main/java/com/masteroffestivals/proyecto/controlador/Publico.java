@@ -26,33 +26,7 @@ public class Publico {
 	private FestivalServicio festivalServicio;
 	
 	// para ruta inicial  http://localhost:8090/grupos
-	/*@GetMapping({"/grupos", "/"}) 
-	public String mostrarGrupos(Model modelo) {
-		modelo.addAttribute("prueba", grupoServicio.mostrarGrupos()); //la palabra grupos es lo que se pone en el html
-		modelo.addAttribute("mensaje", "esto es una prueba");
-		
-		modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		
-			return "grupos";
-	}
-	
-	@GetMapping("/hola")
-	public String hola(Model modelo) {
-		modelo.addAttribute("mensaje1", "hola");
-		modelo.addAttribute("mensaje", "esto es una prueba");
-		modelo.addAttribute("prueba", "esto es una prueba");
-		modelo.addAttribute("prueba2", "esto es una prueba2");
-		
-		return "hola";
-	}*/
-	/*
-	@GetMapping("/index")
-	public String index (Model modelo) {
-		modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		return "index";
-	}*/
-	
-	
+
 	@GetMapping("/index")
 	public String index (Model modelo) {
 		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
@@ -67,41 +41,7 @@ public class Publico {
 		return "index";
 	}
 	
-	/*@GetMapping("/index")
-	public String index (Model modelo) {
-		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-		modelo.addAttribute("festmetal", festivalServicio.buscarFestivalGenero("METAL"));
-		modelo.addAttribute("festhardcore", festivalServicio.buscarFestivalGenero("HARDCORE"));
-		modelo.addAttribute("festpunk", festivalServicio.buscarFestivalGenero("PUNK"));
-		modelo.addAttribute("festrock", festivalServicio.buscarFestivalGenero("ROCK"));
-		modelo.addAttribute("festdeath", festivalServicio.buscarFestivalGenero("DEATH"));
-		modelo.addAttribute("feststoner", festivalServicio.buscarFestivalGenero("STONER"));
-		
-		return "index";
-	
-	}	*/
-	
-	
-	
-	//@GetMapping("/login")
-	//public String login (/*Model modelo*/) {
-		//modelo.addAttribute("festivales", festivalServicio.mostrarFestivales());
-	//	return "login";
-	//}
-	
-	
-/*	@GetMapping("/registro-usuario")
-	public String registroUsuario (Model modelo) {
-		Usuario usuario = new Usuario();
-		modelo.addAttribute("usuario", usuario);
-		return "registroUsu";
-	}
-	
-	@PostMapping("/usuario-creado") //lo que se pone en el modelattribute es lo que tiene que ir en el th:object del form
-	public String guardarUsuario(@ModelAttribute("usuario") Usuario usuario) {
-		
-	}*/
-	
+
 	
 	//ficha detalle festival
 	@GetMapping("/ficha-detalle/{idfestival}") 

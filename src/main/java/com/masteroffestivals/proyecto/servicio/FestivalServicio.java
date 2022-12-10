@@ -40,6 +40,7 @@ public interface FestivalServicio {
 	//mostramos festival por pais
 	public List <Festival> buscarFestivalPais (String pais);
 	
+	
 	//mostramos todos los festivales 
 	public List<Festival> buscarTodosFestivalGenero(String estilo);
 	

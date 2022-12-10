@@ -24,7 +24,7 @@ public interface FestivalRepositorio extends JpaRepository<Festival,Serializable
 	
 	@Query ("SELECT f FROM Festival f WHERE f.mostrar = 1 AND f.estilo = :estilo")
 	public List <Festival> findByEstilo (String estilo);
-	//public List <Festival> findByEstilo (Estilo estilo);
+	
 	public List <Festival> findByPais (String pais);
 	
 	@Query ("SELECT f FROM Festival f WHERE f.estilo = :estilo")

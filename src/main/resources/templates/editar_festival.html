@@ -82,8 +82,43 @@
                     <input placeholder="Introduce el lugar" type="text" class="inputFormulario" name="localizacion" th:field="${festival.lugar}" maxlength="30" id="localizacion" required="required">
                 </div>
                 <div>
+<!--                 <div> -->
+<!--                     <label for="pais" class="tagFormulario">País: *</label> -->
+<!--                     <input placeholder="Introduce el país de celebración" type="text" class="inputFormulario" name="pais" th:field="${festival.pais}" maxlength="40" id="pais" required="required"> -->
+<!--                 </div> -->
+
+				<div>
                     <label for="pais" class="tagFormulario">País: *</label>
-                    <input placeholder="Introduce el país de celebración" type="text" class="inputFormulario" name="pais" th:field="${festival.pais}" maxlength="40" id="pais" required="required">
+                    <select class="inputFormulario" th:field="${festival.pais}">
+                    	<option th:value="'Alemania'" th:text="Alemania"></option>
+                    	<option th:value="'Austria'" th:text="Austria"></option>
+                    	<option th:value="'Bélgica'" th:text="Bélgica"></option>
+                    	<option th:value="'Bulgaria'" th:text="'Bulgaria'"></option>
+                    	<option th:value="'Chipre'" th:text="'Chipre'"></option>
+                    	<option th:value="'Croacia'" th:text="Croacia"></option>
+                    	<option th:value="'Dinamarca'" th:text="Dinamarca"></option>
+                    	<option th:value="'Eslovaquia'" th:text="Eslovaquia"></option>
+                    	<option th:value="'Eslovenia'" th:text="'Eslovenia'"></option>
+                    	<option th:value="'España'" th:text="'España'"></option>
+                    	<option th:value="'Estonia'" th:text="Estonia"></option>
+                    	<option th:value="'Finlandia'" th:text="Finlandia"></option>
+                    	<option th:value="'Francia'" th:text="Francia"></option>
+                    	<option th:value="'Grecia'" th:text="Grecia"></option>
+                    	<option th:value="'Hungría'" th:text="'Hungría'"></option>
+                    	<option th:value="'Irlanda'" th:text="'Irlanda'"></option>
+                    	<option th:value="'Italia'" th:text="Italia"></option>
+                    	<option th:value="'Letonia'" th:text="Letonia"></option>
+                    	<option th:value="'Lituania'" th:text="Lituania"></option>
+                    	<option th:value="'Luxemburgo'" th:text="'Luxemburgo'"></option>
+                    	<option th:value="'Malta'" th:text="'Malta'"></option>
+                    	<option th:value="'Países Bajos'" th:text="'Países Bajos'"></option>
+                    	<option th:value="'Polonia'" th:text="Polonia"></option>
+                    	<option th:value="'Portugal'" th:text="Portugal"></option>
+                    	<option th:value="'Reino Unido'" th:text="'Reino Unido'"></option>
+                    	<option th:value="'República Checa'" th:text="'República Checa'"></option>
+                    	<option th:value="'Rumanía'" th:text="Rumanía"></option>
+                    	<option th:value="'Suecia'" th:text="Suecia"></option>
+                    </select>
                 </div>
 
 
