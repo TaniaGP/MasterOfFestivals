@@ -57,6 +57,11 @@ a:hover, a:active { /* mouse over link */ /* selected link */
 	
 }
 
+.error{
+    font-family: 'Muli', sans-serif;
+    color: white;
+}
+
 /*-------------------------------------------------INDEX----------------------------------------*/
 /*------------------------BODY--------------------*/
 body {
